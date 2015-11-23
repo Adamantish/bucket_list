@@ -1,19 +1,32 @@
-Given(/^A traveller chooses to add a ToDo$/) do
+
+Given(/^There are at least (\d+) destinations$/) do |arg1|
+  Destination.create!(name: "Australia")
+  Destination.create!(name: "Finland")
+
+end
+
+Given(/^A traveller is on the homepage$/) do
   visit root_path
+end
+
+Given(/^A traveller chooses to add a ToDo$/) do
   click 'Add Pebble'
 end
 
 Given(/^A traveller selects a destination$/) do
-  select "Australia", from "Destinations"
+  save_and_open_page
+  select "Australia", from: "to_do[destination_id]"
+end
 
 When(/^Enters valid ToDo details$/) do
-  fill_in "One liner", with: "Eat dirt"
-  fill_in "Where", with: "Outback Go-Karts"
+  fill_in "to_do[description]", with: "Eat dirt"
+  fill_in "to_do[address]", with: "Outback Go-Karts"
 
 end
 
 When(/^Submits the ToDo$/) do
-  click "Bucket it"
+  save_and_open_page
+  click_button "btn__add-to_do"
 end
 
 Then(/^The ToDo is added to the list$/) do
