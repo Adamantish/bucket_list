@@ -4,7 +4,7 @@
   = form_for @todo do |f|
     %fieldset
       = f.label :destination
-      = f.select :destination_id , @destination_options , name: "to_do[destination_id]"
+      = f.select :destination_id , @destination_options , selected: nil
 
     %fieldset
       = f.label "One Liner"
