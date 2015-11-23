@@ -10,11 +10,20 @@ RSpec.describe ToDo, type: :model do
     expect(@to_do.geocode_string).to eq('Delhi, India')
   end
 
-  it "should geocode the coordinates on save" do
+  it "geocodes the coordinates" do
 
     @to_do.geocode
-    
+
     expect(@to_do.lat). to eq 28.6139391
     expect(@to_do.lng). to eq 77.2090212
   end
+
+  it "geocodes on save" do 
+    @to_do.save!
+
+    expect(@to_do.lat). to eq 28.6139391
+    expect(@to_do.lng). to eq 77.2090212
+  end
+
+  
 end
