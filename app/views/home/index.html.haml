@@ -1,3 +1,13 @@
 %h1 Blah
 
+#bucket
+  = form_for @todos do |f|
+    %fieldset
+      f.label :destination
+      f.select :destination , :name, Destination.all
+
+    %fieldset
+      f.label "One Liner"
+      f.text_field :description
+
 #map-canvas{data: {to_dos: @to_do_json}}
