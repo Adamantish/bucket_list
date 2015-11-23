@@ -40,19 +40,26 @@ function showModal(toDo) {
   var $modalbk = $('<div></div>').attr("id", "modal-background")
   var $modal = $('<div></div>').attr("id", "modal")
   
-  debugger;
   var modalHTML =  "<h1>A Title</h1>"
   modalHTML += "<p>A longish description</p>"
 
   $modal.html(renderModal(toDo))
 
-  $('body').append($modalbk.append($modal))
-}
+  $modal.css("left" , event.pageX + 10)
+  $modal.css("top" , event.pageY + 10)
+  $modalbk.click(function(){
+    this.remove()
+  })
+
+  $modalbk.append($modal)
+  // $('body').append($modalbk.append($modal))
+
+$('#map-canvas').append($modalbk)}
 
 
 function renderModal(data) {
 
-var template = _.template("<h1><%= description %></h1><p><%= address %></p>")
+var template = _.template("<h1><%= description %></h1><p>Location: <%= address %></p>")
 
  return template(data)
 }
