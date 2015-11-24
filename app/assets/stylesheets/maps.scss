@@ -1,0 +1,76 @@
+body {
+  position: relative;
+  background-color: whitesmoke;
+  font-size: 1.5rem;
+  font-family: helvetica, Futura;
+}
+
+fieldset {
+  background: white;
+  border:none;
+}
+
+fieldset > * {
+  font-size: 1.5rem;
+  border: none;
+}
+
+fieldset > label {
+  width: 10em;
+}
+
+fieldset > input {
+  margin-left: 70px;
+  margin-right: auto;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+
+#bucket {
+  float:left;
+  display: inline;
+  width: 49%
+
+}
+
+#btn__add-to_do {
+    padding: 0.5em;
+    font-size: 1em;
+    margin: 1em 0.5em;
+    cursor: pointer;
+}
+
+#map-canvas {
+  display: inline-block;
+  min-width: 50%;
+  height: 800px ;
+}
+
+#modal {
+  position: fixed;
+  width: 20em;
+  font-size: 0.5em;
+  padding: 1em;
+  box-shadow: 1em 1em 1em;
+
+background-color: white;
+}
+
+/*#modal:before {
+  content: "x";
+  position: relative;
+  left: 315px; 
+}
+*/
+
+
+#modal-background {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: fixed;
+  background-color: rgba(0,0,0,0);
+}
