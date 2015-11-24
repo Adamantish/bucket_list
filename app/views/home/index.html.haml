@@ -1,0 +1,25 @@
+%h1 The Bucket List
+
+#bucket
+  = form_for @todo do |f|
+    %fieldset
+      = f.label :destination
+      = f.select :destination_id , @destination_options , selected: 0
+
+    %fieldset
+      = f.label "One Liner"
+      = f.text_field :description
+
+    %fieldset
+      = f.label "Where"
+      = f.text_field :address
+
+    %button#btn__add-to_do Bucket It
+
+  - ToDo.all.each do |t|
+    %h3 
+      = t.description
+    %p
+      Location: #{t.address}
+
+#map-canvas{data: {to_dos: @to_do_json}}
