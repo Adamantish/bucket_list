@@ -83,7 +83,7 @@ function showModal(toDo) {
   $modalbk.append($modal)
   // $('body').append($modalbk.append($modal))
 
-$('#map-canvas').append($modalbk)}
+$('body').append($modalbk)}
 
 
 function renderModal(data) {
