@@ -1,10 +1,10 @@
-%h1 Blah
+%h1 The Bucket List
 
 #bucket
   = form_for @todo do |f|
     %fieldset
       = f.label :destination
-      = f.select :destination_id , @destination_options , selected: nil
+      = f.select :destination_id , @destination_options , selected: 0
 
     %fieldset
       = f.label "One Liner"

@@ -2,8 +2,9 @@ class ToDosController < ApplicationController
 
   
   def create
-
-    ToDo.create!(sane_params)
+    # My TODO: setup flash messaging
+    binding.pry
+    ToDo.create(sane_params)
     redirect_to root_path
   end
 

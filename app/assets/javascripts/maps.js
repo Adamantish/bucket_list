@@ -2,22 +2,30 @@
 
 
 function initMap() {
-  var map = new google.maps.Map($('#map-canvas')[0], {
+  window.markers = []
+  window.map = new google.maps.Map($('#map-canvas')[0], {
 
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 8
+    center: {lat: 11.689248, lng: 21.518491},
+    zoom: 3
    });
 
   window.toDos = $('#map-canvas').data('toDos');
   map.latlngbounds = new google.maps.LatLngBounds()
 
-  addMarkers(map, toDos)
+  if(toDos.length > 0) {
+    addMarkers(toDos)
+  };
 
+  $('#to_do_destination_id').on("change", function(event) {
+    // debugger;
+    var dest_id = $("#to_do_destination_id").val()
+    showOnlyMarkersFor(dest_id) 
+  });
  }
 
-function addMarkers(map, newToDos) {
+function addMarkers(newToDos) {
     
-    _(toDos).each(function(toDo) {
+    _(newToDos).each(function(toDo) {
       var myLatLng = new google.maps.LatLng(toDo.lat, toDo.lng);
       var marker = new google.maps.Marker({
 
@@ -26,14 +34,35 @@ function addMarkers(map, newToDos) {
         map: map
       });
 
+      markers.push(marker);
       map.latlngbounds.extend(myLatLng)
       marker.addListener("click", function() { showModal(toDo)})
 
     })  
-    map.setCenter(map.latlngbounds.getCenter())
+
     map.fitBounds(map.latlngbounds)
+    if(map.zoom > 12){
+      map.setZoom(12)
+    };
+    map.setCenter(map.latlngbounds.getCenter())
+    
+    
 }
 
+function clearMarkers() {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(null);
+  }
+  map.latlngbounds = new google.maps.LatLngBounds()
+}
+
+function showOnlyMarkersFor(destination_id) {
+  clearMarkers()
+  filteredToDos = toDos.filter(function(obj) { 
+    return obj.destination_id == destination_id
+  });
+  addMarkers(filteredToDos)
+};
 
 function showModal(toDo) {
 
