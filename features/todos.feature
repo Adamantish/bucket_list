@@ -2,13 +2,12 @@ Feature: ToDo Editing
 
 Scenario: A traveller opens Bucket List for the first time
   Given Nothing
-  
 
 Scenario: A traveller adds a ToDo item
   Given There are at least 2 destinations
-  Given A traveller is on the homepage
-  # Given A traveller chooses to add a ToDo
-    Given A traveller selects a destination 
-  When Enters valid ToDo details
+    And A traveller is on the homepage
+  When A traveller selects a destination 
+  # When A traveller chooses to add a ToDo
+    And Enters valid ToDo details
     And Submits the ToDo
   Then The ToDo is added to the list

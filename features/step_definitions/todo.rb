@@ -13,7 +13,7 @@ Given(/^A traveller chooses to add a ToDo$/) do
   click 'Add Pebble'
 end
 
-Given(/^A traveller selects a destination$/) do
+When(/^A traveller selects a destination$/) do
   save_and_open_page
   select "Australia", from: "to_do[destination_id]"
 end

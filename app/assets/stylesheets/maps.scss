@@ -50,10 +50,10 @@ h1 {
 }
 
 #modal {
-  position: absolute;
+  position: fixed;
   width: 20em;
   font-size: 0.5em;
-  padding-left: 1em;
+  padding: 1em;
   box-shadow: 1em 1em 1em;
 
 background-color: white;

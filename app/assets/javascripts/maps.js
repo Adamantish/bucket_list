@@ -46,7 +46,6 @@ function addMarkers(newToDos) {
     };
     map.setCenter(map.latlngbounds.getCenter())
     
-    
 }
 
 function clearMarkers() {
