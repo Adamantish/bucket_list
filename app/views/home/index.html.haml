@@ -1,4 +1,4 @@
-%h1 The Bucket List
+.heading The Bucket List
 
 #bucket
   = form_for @todo ,remote: true do |f|
@@ -24,10 +24,6 @@
 
   #to_dos
     = render partial: 'to_dos', locals: {some_to_dos: @to_dos}
-  / - ToDo.all.each do |t|
-  /   %h3 
-  /     = t.description
-  /   %p
-  /     Location: #{t.address}
 
-#map-canvas{data: {to_dos: @to_dos_json}}
+#map-container
+  #map-canvas{data: {to_dos: @to_dos_json ,style: "position: fixed; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223);" }}

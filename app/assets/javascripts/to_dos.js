@@ -1,19 +1,15 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
-
 
 $(document).ready(function() {
+
   // var $butt = $('#btn__add-to_do')
   // $butt.click(function(e) {
   //   $('#new_to_do').css("opacity", "0")
 
   // });
-
+  $('#map-canvas').attr("style", "position: fixed; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223);")
   $('#select--sort-to_dos').on("change", function(e){
     sortElements("#to_dos", $(e.target).val())
   });
-
-
 
 });
 

@@ -2,6 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.heading {
+
+  font-size: 1.3em;
+  font-weight: bold;
+  padding-bottom: 0.5em;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  color: #f2f2f2;
+  background-color: rgb(174, 85, 118);
+  padding-top: 0.5em;
+  top: 0em;
+}
+
+.h3 {
+
+    display: block;
+    font-size: 1.17em;
+    padding-bottom: 0.3em;
+    font-weight: bold;
+}
+
 fieldset {
   background: white;
   border:none;
@@ -13,13 +36,21 @@ fieldset > * {
 }
 
 fieldset > label {
-  width: 20em;
+  width: 2em;
+  display: block;
+  font-size: small;
+  color: grey;
+  margin-bottom: 0.5em;
 }
 
-fieldset > input {
-  margin-left: 70px;
+fieldset > input , fieldset > select {
+  margin-left: 1em;
   margin-right: auto;
+  border: solid #f2f2f2 1px;
+  border-radius: 3px;
+  padding-left: 0.3em;
 }
+
 
 /*.box-shadow--light {
   box-shadow: 0.2em 0.2em 1.5em grey;
@@ -31,22 +62,23 @@ fieldset > input {
 
 #new_to_do {
   box-shadow: 0.2em 0.2em 1.5em grey;
-  opacity: 1;
-  transition: opacity ;
+  background-color: white;
 
 }
+
 .to_do {
 
   background-color: white;
   /*border-radius: 2px;*/
   box-shadow: 0.2em 0.5em 1.2em grey;
-  padding: 1em;
+  padding: 1.3em;
+  margin-bottom: 2em;
 }
 
 #bucket {
   float:left;
   display: inline;
-  width: 49%
+  width: 26em;
 
 }
 
@@ -55,4 +87,14 @@ fieldset > input {
     font-size: 1em;
     margin: 1em 0.5em;
     cursor: pointer;
+}
+
+.click--photos {
+
+  display: block;
+}
+
+.thumbnail {
+  margin-right: -6px;
+  margin-bottom: -4px;
 }

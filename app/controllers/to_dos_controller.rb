@@ -8,8 +8,8 @@ class ToDosController < ApplicationController
   end
 
   def photos
-    binding.pry
-    params[:id]
+    @to_do_id = params['id']
+    @photos = ToDo.find(@to_do_id).photos
   end
 
   private

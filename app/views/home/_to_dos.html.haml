@@ -1,8 +1,9 @@
 
 - @to_dos.each do |t|
   .to_do{data: "#{t.description}" , data_id: "#{t.id}"}
-    %h3.to_do__title
+    .h3.to_do__title
       = t.description
     %p
       Location: #{t.address}
-  = link_to "snaps", photos_to_do_path(id: t.id) , {class: "click--photos", remote: true}
+
+    = link_to "show snaps", photos_to_do_path(id: t.id) , {class: "click--photos", remote: true}
