@@ -16,7 +16,7 @@ module FlickrService
     "Original" => "_o" 
   }
 
-  def self.photos_of(search: , lat: ,lng:, size: "Medium")
+  def self.photos_of(search: , lat: ,lng:)
     response = self.get("/services/rest", {query: 
         {method:'flickr.photos.search',
           tags: tag_list(search),
@@ -38,8 +38,9 @@ module FlickrService
     search.split(" ").join(",")
   end
 
-  Photo = Struct.new(:id, :title, :size, :secret, :farm, :server) do 
-    def image_url
+  Photo = Struct.new(:id, :title, :secret, :farm, :server) do 
+    def image_url(size = "Medium")
+      binding.pry
       "https://farm#{farm}.staticflickr.com/#{server}/#{id}_#{secret}#{PHOTO_SIZES[size]}.jpg"
     end
   end

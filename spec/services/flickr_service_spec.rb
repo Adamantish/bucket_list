@@ -20,6 +20,10 @@ RSpec.describe FlickrService do
     expect(@result.first.image_url).to eq('https://farm1.staticflickr.com/578/22338700974_3ef7860725.jpg')
   end
 
+  it "can also retrieve the image in a different size" do 
+    expect(@result.first.image_url("Thumbnail")).to eq('https://farm1.staticflickr.com/578/22338700974_3ef7860725_t.jpg')
+  end
+
   it "sets the title for each photo" do 
     expect(@result.first.title).to eq "\"Dilli Haat\", at New Delhi"
   end
