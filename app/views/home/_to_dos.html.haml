@@ -5,4 +5,4 @@
       = t.description
     %p
       Location: #{t.address}
-  %a.click--photos{href: }    
+  = link_to "snaps", photos_to_do_path(id: t.id) , {class: "click--photos", remote: true}

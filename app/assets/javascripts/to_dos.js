@@ -10,8 +10,6 @@ $(document).ready(function() {
   // });
 
   $('#select--sort-to_dos').on("change", function(e){
-    debugger;
-
     sortElements("#to_dos", $(e.target).val())
   });
 
@@ -23,12 +21,11 @@ function sortElements(selector, sort_by) {
   var el = $(selector)
   var $kids = $(selector).children()
 
-  debugger;
   $kids.sort( function(a,b) {
-    var aTitle = a.getAttribute(sort_by)
-    var bTitle = b.getAttribute(sort_by)
+    var aComparator = a.getAttribute(sort_by)
+    var bComparator = b.getAttribute(sort_by)
 
-    if(aTitle < bTitle) { return -1
+    if(aComparator < bComparator) { return -1
     } else { 
       return 1
     };
