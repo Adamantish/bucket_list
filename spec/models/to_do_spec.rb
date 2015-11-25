@@ -1,10 +1,25 @@
 require 'rails_helper'
 
+
 RSpec.describe ToDo, type: :model do
   before do 
-    @destination = Destination.new(name: "India")
+    Geocoder.configure(:lookup => :test)
+
+    Geocoder::Lookup::Test.add_stub(
+      "Delhi, India", [
+        {
+          'latitude'     => 28.6139391,
+          'longitude'    => 77.2090212,
+          'address'      => 'Delhi, India',
+          'country'      => 'India'
+        }
+      ]
+    )
+
+    @destination = Destination.create(name: "India")
     @to_do = @destination.to_dos.build(:description => "Ride an Elephant", :address => "Delhi")
   end
+
 
   it "should build a string suitable for geocoding" do 
     expect(@to_do.geocode_string).to eq('Delhi, India')
