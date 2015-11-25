@@ -1,3 +1,58 @@
 // Place all the styles related to the to_dos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+fieldset {
+  background: white;
+  border:none;
+}
+
+fieldset > * {
+  font-size: 1.5rem;
+  border: none;
+}
+
+fieldset > label {
+  width: 20em;
+}
+
+fieldset > input {
+  margin-left: 70px;
+  margin-right: auto;
+}
+
+/*.box-shadow--light {
+  box-shadow: 0.2em 0.2em 1.5em grey;
+}*/
+
+#select--sort-to_dos {
+  font-size: 1.5rem;
+}
+
+#new_to_do {
+  box-shadow: 0.2em 0.2em 1.5em grey;
+  opacity: 1;
+  transition: opacity ;
+
+}
+.to_do {
+
+  background-color: white;
+  /*border-radius: 2px;*/
+  box-shadow: 0.2em 0.5em 1.2em grey;
+  padding: 1em;
+}
+
+#bucket {
+  float:left;
+  display: inline;
+  width: 49%
+
+}
+
+#btn__add-to_do {
+    padding: 0.5em;
+    font-size: 1em;
+    margin: 1em 0.5em;
+    cursor: pointer;
+}
