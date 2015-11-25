@@ -1,5 +1,8 @@
 Feature: ToDo Editing
 
+Background:
+  Given We expect to go to Delhi, India
+  
 Scenario: A traveller opens Bucket List for the first time
   Given Nothing
 
