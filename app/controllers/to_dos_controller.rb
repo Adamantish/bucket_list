@@ -2,7 +2,6 @@ class ToDosController < ApplicationController
 
   
   def create
-    binding.pry
     @new_to_do = ToDo.create(sane_params)
     @new_to_do_json = [@new_to_do].to_json(except: %i(id, created_at, updated_at))
     @to_dos = []; @to_dos << @new_to_do

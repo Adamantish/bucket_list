@@ -11,4 +11,7 @@ class ToDo < ActiveRecord::Base
       "#{address}, #{destination.name}"
     end
 
+    def photos
+      FlickrService.photos_of(search: "#{@description} #{geocode_string.gsub(',','')}", lat: lat ,lng: lng)
+    end
 end

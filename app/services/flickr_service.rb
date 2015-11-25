@@ -35,12 +35,11 @@ module FlickrService
   end
 
   def self.tag_list(search)
-    search.split(" ").join(",")
+    search.strip.chomp.split(" ").join(",")
   end
 
   Photo = Struct.new(:id, :title, :secret, :farm, :server) do 
     def image_url(size = "Medium")
-      binding.pry
       "https://farm#{farm}.staticflickr.com/#{server}/#{id}_#{secret}#{PHOTO_SIZES[size]}.jpg"
     end
   end

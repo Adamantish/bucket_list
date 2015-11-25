@@ -12,7 +12,6 @@ RSpec.describe FlickrService do
   end
 
   it "find 92 photos" do
-    binding.pry
     expect(@result.length).to eq 92
   end
 

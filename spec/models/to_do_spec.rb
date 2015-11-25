@@ -18,6 +18,10 @@ RSpec.describe ToDo, type: :model do
 
     @destination = Destination.create(name: "India")
     @to_do = @destination.to_dos.build(:description => "Ride an Elephant", :address => "Delhi")
+
+    flickr_elephant_data = JSON(File.read('spec/fixtures/Elephant_ride.json'))
+    allow(FlickrService).to receive(:get).and_return(flickr_elephant_data)
+
   end
 
 
@@ -40,5 +44,8 @@ RSpec.describe ToDo, type: :model do
     expect(@to_do.lng). to eq 77.2090212
   end
 
-  
+  it "can fetch array of flickr photo objects" do
+    @to_do.save!
+    expect(@to_do.photos[0].is_a? Struct)
+  end
 end
