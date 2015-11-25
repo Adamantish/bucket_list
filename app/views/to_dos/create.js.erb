@@ -1,10 +1,10 @@
 console.log("Ruby says hello")
 
- // var newToDo = <%= @new_to_do_json %>
-debugger;
- // addMarkers(newToDo)
+// addMarker(<%= "#{@new_to_do.lat}, #{@new_to_do.lng}" %>, "<%= @new_to_do.description %>" )
+var itemHTML = '<%= escape_javascript(render partial: 'home/to_dos', locals: {some_to_dos: @to_dos}) %>'
 
-addMarker(<%= "#{@new_to_do.lat}, #{@new_to_do.lng}" %>, "<%= @new_to_do.description %>" )
+$('#to_dos').prepend(itemHTML)
+
 $('.notice').text("Plink! In the bucket")
 
 // $('#map-canvas').attr("data", to_dos: @to_do_json})

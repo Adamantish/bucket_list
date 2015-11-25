@@ -3,21 +3,37 @@
 
 
 $(document).ready(function() {
+  // var $butt = $('#btn__add-to_do')
+  // $butt.click(function(e) {
+  //   $('#new_to_do').css("opacity", "0")
 
-  // $('#btn__add-to_do').click(function(e) {
-  //   e.preventDefault();
-  //   var data = $(e.currentTarget).closest('form').serialize();
-
-  //   $.ajax({
-  //     type: "POST",
-  //     url: "/to_dos.js",
-  //     data: data,
-  //     // success: function(){
-
-  //     // }
-  //   })
   // });
+
+  $('#select--sort-to_dos').on("change", function(e){
+    debugger;
+
+    sortElements("#to_dos", $(e.target).val())
+  });
 
 
 
 });
+
+function sortElements(selector, sort_by) {
+  var el = $(selector)
+  var $kids = $(selector).children()
+
+  debugger;
+  $kids.sort( function(a,b) {
+    var aTitle = a.getAttribute(sort_by)
+    var bTitle = b.getAttribute(sort_by)
+
+    if(aTitle < bTitle) { return -1
+    } else { 
+      return 1
+    };
+  });
+
+  $kids.detach().appendTo(el)
+
+};

@@ -14,9 +14,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'cucumber-rails', :require => false
-  gem 'pry'
-  gem 'database_cleaner'
-  gem 'launchy'
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -27,3 +25,10 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'poltergeist'
+  gem 'capybara'
+  # gem 'selenium'
+end

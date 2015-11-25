@@ -1,13 +1,13 @@
 %h1 The Bucket List
 
 #bucket
-  = form_for @todo, remote: true do |f|
+  = form_for @todo ,remote: true do |f|
     %fieldset
       = f.label :destination
       = f.select :destination_id , @destination_options , selected: 0
 
     %fieldset
-      = f.label "One Liner"
+      = f.label "What"
       = f.text_field :description
 
     %fieldset
@@ -15,12 +15,19 @@
       = f.text_field :address
 
     %button#btn__add-to_do Bucket It
+  
+  %select#select--sort-to_dos
+    %option{ value: "data"}
+      ^A-Z
+    %option{selected: "selected", value: "data_id"}
+      ^1,2,3..
 
-  = render partial: @todo
+  #to_dos
+    = render partial: 'to_dos', locals: {some_to_dos: @to_dos}
   / - ToDo.all.each do |t|
   /   %h3 
   /     = t.description
   /   %p
   /     Location: #{t.address}
 
-#map-canvas{data: {to_dos: @to_do_json}}
+#map-canvas{data: {to_dos: @to_dos_json}}
