@@ -18,6 +18,8 @@ RSpec.describe ToDo, type: :model do
 
     @destination = Destination.create(name: "India")
     @to_do = @destination.to_dos.build(:description => "Ride an Elephant", :address => "Delhi")
+    @kurt = Traveller.create!(name: "Kurt", email: "new@sage.trav.com", password: "LikeTotally")
+    @previn = Traveller.create!(name: "Previn", email: "Sweety@sage.trav.com", password: "LikeYahally")
 
     flickr_elephant_data = JSON(File.read('spec/fixtures/Elephant_ride.json'))
     allow(FlickrService).to receive(:get).and_return(flickr_elephant_data)
@@ -47,5 +49,33 @@ RSpec.describe ToDo, type: :model do
   it "can fetch array of flickr photo objects" do
     @to_do.save!
     expect(@to_do.photos[0].is_a? Struct)
+  end
+
+  describe "ToDo Likes" do 
+
+    it "knows how many likes it has" do 
+      Like.create!(traveller: @kurt, to_do: @to_do)
+      expect(@to_do.likes.length).to eq 1
+    end
+
+    it "can be liked through shovelling directly in" do 
+      @to_do.travellers << @kurt
+      expect(@to_do.likes.length).to eq 1
+    end
+
+    it "cannot be liked twice by the same traveller" do
+      Like.create(traveller: @kurt, to_do: @to_do)
+      Like.create(traveller: @kurt, to_do: @to_do)
+      expect(@to_do.likes.length).to eq 1
+
+      expect { @to_do.travellers << @kurt }.to raise_error /Hey you can't like it THAT much!/
+    end
+
+    it "can be liked by different people" do 
+      Like.create(traveller: @kurt, to_do: @to_do)
+      Like.create(traveller: @previn, to_do: @to_do)
+      expect(@to_do.likes.length).to eq 2
+
+    end
   end
 end

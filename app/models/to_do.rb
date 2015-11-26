@@ -2,6 +2,9 @@ class ToDo < ActiveRecord::Base
 
   belongs_to :destination
 
+  has_many :likes
+  has_many :travellers, :through => :likes
+
   geocoded_by :geocode_string, latitude: :lat, longitude: :lng
   before_save :geocode
 
