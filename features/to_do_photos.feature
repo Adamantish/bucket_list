@@ -1,7 +1,6 @@
 Feature: To Do Photos
   
   @javascript
-  @wip
   Scenario: 
     Given a traveller has some to dos in their bucket list
       And a traveller is on the homepage
