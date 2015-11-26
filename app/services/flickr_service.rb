@@ -56,7 +56,7 @@ module FlickrService
       if id
         "https://farm#{farm}.staticflickr.com/#{server}/#{id}_#{secret}#{PHOTO_SIZES[size]}.jpg"
       else
-        "/images/" << NO_PHOTOS_PLACEHOLDER
+        "/assets/" << NO_PHOTOS_PLACEHOLDER
       end
     end
   end

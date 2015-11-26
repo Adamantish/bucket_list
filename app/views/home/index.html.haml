@@ -9,10 +9,8 @@
       ^A-Z
     %option{selected: "selected", value: "data_id"}
       ^1,2,3..
-      
-  #to_dos
-    / = render partial: 'to_dos', locals: {some_to_dos: @to_dos}
 
+  #to_dos
     = render partial: @to_dos
 
 

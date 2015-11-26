@@ -1,4 +1,11 @@
 
+Given(/^a traveller has some to dos in their bucket list$/) do
+  @destination = Destination.create!(name: "India")
+  ToDo.create!(description: "Ride Elephant", address: "Delhi", destination: @destination)
+  # ToDo.create!(description: "Ride Pachyderm", address: "Mumbai", destination: @destination)
+
+end
+
 Given(/^There are at least (\d+) destinations$/) do |arg1|
   Destination.create!(name: "India")
   Destination.create!(name: "Finland")

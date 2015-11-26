@@ -1,13 +1,6 @@
-Given(/^a traveller has some to dos in their bucket list$/) do
-
-  @destination = Destination.create!(name: "India")
-  ToDo.create!(description: "Ride Elephant", address: "Delhi", destination: @destination)
-
-end
-
 
 When(/^they select the photos link$/) do
-  click_link "Show snaps"
+  click_link "click--photos"
 end
 
 Then(/^they should see photos of their to do item$/) do
