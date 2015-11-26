@@ -6,4 +6,4 @@
     %p
       Location: #{t.address}
 
-    = link_to "show snaps", photos_to_do_path(id: t.id) , {class: "click--photos", remote: true}
+    = link_to "show snaps", photos_to_do_path(t) , {class: "click--photos", remote: true}

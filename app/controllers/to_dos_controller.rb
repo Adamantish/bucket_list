@@ -1,6 +1,5 @@
 class ToDosController < ApplicationController
 
-  
   def create
     @new_to_do = ToDo.create(sane_params)
     @new_to_do_json = [@new_to_do].to_json(except: %i(created_at, updated_at))

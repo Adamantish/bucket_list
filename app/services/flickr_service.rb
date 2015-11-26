@@ -2,7 +2,7 @@ module FlickrService
   include HTTParty
   base_uri 'api.flickr.com:443'
   
-  NO_PHOTOS_PLACEHOLDER = 
+  NO_PHOTOS_PLACEHOLDER = "no_images.png"
   
   PHOTO_SIZES =  {
     
@@ -30,14 +30,19 @@ module FlickrService
         }
       }
     )
-    
-    if response["photos"]
-      response["photos"]["photo"].map do |photo|
+    response_photos = response["photos"]["photo"]
+    photos = []
+
+    if response_photos.any?
+      photos = response_photos.map do |photo|
         Photo.new(photo["id"], photo["title"], photo["secret"], photo["farm"], photo["server"])
       end
     else
-      Photo.new(title: "no images found")
+      photos << Photo.new(nil, "no images found")
     end
+
+    photos
+
   end
 
   def self.tag_list(search)
@@ -49,7 +54,7 @@ module FlickrService
       if id
         "https://farm#{farm}.staticflickr.com/#{server}/#{id}_#{secret}#{PHOTO_SIZES[size]}.jpg"
       else
-        "/images/no_images.png"
+        "/images/" << NO_PHOTOS_PLACEHOLDER
       end
     end
   end

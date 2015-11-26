@@ -12,6 +12,6 @@ class ToDo < ActiveRecord::Base
     end
 
     def photos
-      FlickrService.photos_of(search: "#{geocode_string.gsub(',','')}", lat: lat ,lng: lng)
+      FlickrService.photos_of(search: description << "#{geocode_string.gsub(',','')}", lat: lat ,lng: lng)
     end
 end

@@ -9,7 +9,7 @@ function initMap() {
     zoom: 3
    });
 
-  map.addListener("idle", markersInBounds)
+  map.addListener("idle", showToDosInBounds)
 
   window.toDos = $('#map-canvas').data('toDos');
   map.latlngbounds = new google.maps.LatLngBounds()
@@ -63,7 +63,7 @@ function clearMarkers() {
   map.latlngbounds = new google.maps.LatLngBounds()
 };
 
-function markersInBounds() {
+function showToDosInBounds() {
   markers.forEach(function(marker) {
     var $foundItem = $("div[data_id=" + marker.id + "]")
     var inBounds = map.getBounds().contains(marker.getPosition())
@@ -74,9 +74,7 @@ function markersInBounds() {
       $foundItem.addClass("undisplayed")
     };
 
-  })
-
-  return inBounds
+  });
 };
 
 function showOnlyMarkersFor(destination_id) {
