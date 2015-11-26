@@ -36,16 +36,16 @@ When(/^A traveller selects a destination$/) do
 end
 
 When(/^Enters valid ToDo details$/) do
-  fill_in "to_do[description]", with: "Eat dirt"
+  fill_in "to_do[description]", with: "Get Spiritual"
   fill_in "to_do[address]", with: "Delhi"
-
 end
 
 When(/^Submits the ToDo$/) do
-  click_button "btn__add-to_do"
+  click_on "btn__add-to_o"
 end
 
 Then(/^The ToDo is added to the list$/) do
-  expect(page).to have_content "Eat dirt"
-  expect(page).to have_content "Outback Go-Karts"
+  sleep 1
+  expect(page).to have_content "Get Spiritual"
+  expect(page).to have_content "Delhi"
 end

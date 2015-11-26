@@ -13,6 +13,11 @@ class ToDosController < ApplicationController
     @edit_or_new_to_do = ToDo.find(params["id"])
   end
 
+  def update
+    id = params["to_do"]["id"]
+    ToDo.update(id, sane_params)
+  end
+
   def photos
     @to_do_id = params['id']
     @photos = ToDo.find(@to_do_id).photos
@@ -21,7 +26,7 @@ class ToDosController < ApplicationController
   private
 
   def sane_params
-     params.require(:to_do).permit(:id, :destination_id, :description, :address)
+     params.require(:to_do).permit(:destination_id, :description, :address)
   end
 
 

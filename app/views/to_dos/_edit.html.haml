@@ -1,7 +1,8 @@
 = form_for @edit_or_new_to_do ,remote: true do |f|
+  = f.text_field :id , {class: "undisplayed"}
   %fieldset
     = f.label :destination
-    = f.select :destination_id , @destination_options , selected: 0
+    = f.select :destination_id , @destination_options, {prompt: 'Pick a country'}
 
   %fieldset
     = f.label "What"
