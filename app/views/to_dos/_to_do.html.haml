@@ -1,9 +1,9 @@
 
 .to_do{data: "#{to_do.description}" , data_id: "#{to_do.id}"}
+  = link_to image_tag('edit-icon.png') , edit_to_do_path(to_do), {class: "edit-link", remote: true}
   .h3.to_do__title
     = to_do.description
 
-  = link_to image_tag('edit_icon.png') , edit_to_do_path(to_do), {class: "edit-link", remote: true}
 
   %p
     Location: #{to_do.address}
