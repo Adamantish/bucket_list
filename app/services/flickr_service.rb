@@ -33,11 +33,13 @@ module FlickrService
     response_photos = response["photos"]["photo"]
     photos = []
 
+
     if response_photos.any?
       photos = response_photos.map do |photo|
         Photo.new(photo["id"], photo["title"], photo["secret"], photo["farm"], photo["server"])
       end
     else
+      # TODO: move this logic to the view
       photos << Photo.new(nil, "no images found")
     end
 
