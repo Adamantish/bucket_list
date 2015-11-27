@@ -12,7 +12,9 @@ class ToDosController < ApplicationController
   end
 
   def create_like
-    ToDo.find(params["id"]).travellers << current_traveller
+    @to_do = ToDo.find(params["id"])
+    @to_do.travellers << current_traveller
+    @likes = @to_do.likes.length
     render partial: 'liked'
   end
 
