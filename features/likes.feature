@@ -6,7 +6,6 @@ Feature: Likings
 
   Scenario: A visitor cannot click like button
 
-
   @javascript
   Scenario: A traveller likes a ToDo which isn't already liked
     Given Previn has logged in
