@@ -1,13 +1,15 @@
 %nav
   .search
-    = form_tag search_to_dos_path  do
+    = form_tag search_to_dos_path, method: "GET"  do
       %fieldset#fieldset__search
         = label_tag :search
         = text_field_tag :search
-      .shadow-box.undisplayed#container--search-results
+        %input#btn--search{type: "submit"}
+      .shadow-box#container--search-results{class: @search_results ? "" : "undisplayed"}
         %fieldset
           #search-results
-        %input#btn--search{type: "submit"}
+            - if @search_results
+              = render partial: 'search'
     
   .heading The Bucket List
 

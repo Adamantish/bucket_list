@@ -11,20 +11,19 @@ header.devise-header > p {
   border-radius: 4px;
   margin-left: 72%;
   margin-right: 1em;
+  color: white;
 
 }
 
-.message {
-
-}
 
 .alert {
   background-color:rgba(224, 158, 188, 0.84);
 }
 
 .notice {
-
+  background-color: rgba(119, 207, 183, 0.84);
 }
+
 .heading {
 
   font-size: 1.3em;
@@ -124,6 +123,12 @@ fieldset > input , fieldset > select {
 
 }
 
+#btn--search {
+    position: relative;
+    left: 16em;
+    top: -1.58em;
+    font-size: 1em;
+}
 
 #container--search-results{
   width:26em;

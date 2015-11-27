@@ -1,5 +1,6 @@
 class ToDosController < ApplicationController
 
+  include ApplicationHelper
   def create
     @new_to_do = ToDo.create(sane_params)
     @new_to_do_json = [@new_to_do].to_json(except: %i(created_at, updated_at))
@@ -23,11 +24,27 @@ class ToDosController < ApplicationController
   end
 
   def search
-    @to_dos = ToDo.where("description LIKE ?", "%#{params[:search]}%")
-    render json: @to_dos
-    # respond_to do 
-      
-    # end
+    @search_results = ToDo.where("description LIKE ?", "%#{params[:search]}%")
+    @numOfSearchResults = @search_results.count == 0 ? "" : @search_results.count
+
+    respond_to do |format|
+      format.json {render json: @search_results}
+      format.html do
+
+        #This is copy paste of the index controller. 
+        #Couldn't figure out how to redirect to it with a payload of search results.
+        #Url would have been very long
+          @todo = ToDo.new()
+          @destination_options = get_select_options(Destination.all)
+          # @destination_options.unshift(["",0])
+          @to_dos = ToDo.all.includes(:likes)
+          @to_dos_json = @to_dos.to_json(except: %i(id, created_at, updated_at))
+          
+          render 'home/index'
+        # For search results
+            
+      end
+    end
   end
 
   private

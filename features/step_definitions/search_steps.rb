@@ -10,6 +10,7 @@ Then(/^I should see all partially matching searches$/) do
 end
 
 Then(/^I should see all matching searches$/) do
+  save_and_open_page
   within('#search-results') do
     expect(page).to have_content('Ride Elephant')
   end  

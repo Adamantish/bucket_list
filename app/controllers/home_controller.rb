@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   include ApplicationHelper
 
   def index
+
     @todo = ToDo.new()
     @destination_options = get_select_options(Destination.all)
     # @destination_options.unshift(["",0])
