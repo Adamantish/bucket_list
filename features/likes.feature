@@ -5,9 +5,10 @@ Feature: Likings
     Given Kurt and Previn sadly exist
       And Previn has logged in
 
+  @wip @javascript
   Scenario: A traveller likes a ToDo which isn't already liked
-    Given A traveller is on the homepage
-      And a traveller has some to dos in their bucket list
+    Given a traveller has some to dos in their bucket list
+      And A traveller is on the homepage
       And The ToDo has no likes
     Then There is "" likes
     
@@ -17,7 +18,6 @@ Feature: Likings
     When the page is reloaded
     Then There is "1" likes
 
-  @wip @javascript
   Scenario: A traveller likes a ToDo which already has been liked
     Given A traveller is on the homepage
       And a traveller has some to dos in their bucket list

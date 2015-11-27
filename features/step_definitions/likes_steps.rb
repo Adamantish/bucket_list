@@ -20,7 +20,6 @@ Given(/^The ToDo is already liked by "(.*?)"$/) do |traveller|
   end
 
   Like.create!(traveller: trav, to_do: @to_do)
-
 end
 
 Given(/^The ToDo has no likes$/) do
@@ -28,7 +27,7 @@ Given(/^The ToDo has no likes$/) do
 end
 
 Then(/^There is "(.*?)" likes$/) do |likes_digits|
-
+  binding.pry
   expect(find('.num_of_likes')).to have_content likes_digits
 end
 
