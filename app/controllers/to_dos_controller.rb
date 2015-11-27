@@ -11,6 +11,15 @@ class ToDosController < ApplicationController
     @photos = ToDo.find(@to_do_id).photos
   end
 
+  def create_like
+    ToDo.find(params["id"]).travellers << current_traveller
+    render partial: 'liked'
+  end
+
+  def delete_like
+
+  end
+
   private
 
   def sane_params

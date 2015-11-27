@@ -8,6 +8,6 @@
 
     = link_to "show snaps", photos_to_do_path(t) , {class: "click--photos", remote: true}
     .container--like
-      = link_to "Like" , create_like_path, {remote: true}
+      = link_to "Like" , create_like_to_do_path(t), {method: "POST", remote: true}
       .num_of_likes
         = t.likes.length == 0 ? "" : t.likes.length
