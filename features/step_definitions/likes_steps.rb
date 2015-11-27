@@ -27,7 +27,6 @@ Given(/^The ToDo has no likes$/) do
 end
 
 Then(/^There is "(.*?)" likes$/) do |likes_digits|
-  binding.pry
   expect(find('.num_of_likes')).to have_content likes_digits
 end
 
