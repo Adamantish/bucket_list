@@ -10,7 +10,6 @@ Scenario: A visitor registers as a traveller
     And A visitor chooses to sign up
   Then They see a flash "notice" "You are a bucketter!"
 
-@wip
 Scenario: A visitor signs in as a traveller
   Given A traveller exists
   When A visitor selects Log In
@@ -18,4 +17,8 @@ Scenario: A visitor signs in as a traveller
   When A visitor fills Log In with valid details
     And A visitor chooses to Log In
   Then They see a flash "notice" "Signed in successfully."
+
+Scenario: A traveller logs out
+  Given A traveller is logged in
+  When A traveller presses 
 

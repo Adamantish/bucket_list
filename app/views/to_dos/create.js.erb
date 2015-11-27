@@ -1,6 +1,6 @@
 
 addMarker(<%= "#{@new_to_do.lat}, #{@new_to_do.lng}" %>, "<%= @new_to_do.description %>", "<%= @new_to_do.id %>" )
-var itemHTML = '<%= escape_javascript(render partial: 'home/to_dos', locals: {some_to_dos: @to_dos}) %>'
+var itemHTML = '<%= escape_javascript(render partial: 'to_dos', locals: {some_to_dos: @to_dos}) %>'
 
 $('#to_dos').prepend(itemHTML)
 

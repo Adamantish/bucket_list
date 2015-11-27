@@ -26,7 +26,7 @@
       ^1,2,3..
 
   #to_dos
-    = render partial: 'to_dos', locals: {some_to_dos: @to_dos}
+    = render partial: 'to_dos/to_dos', locals: {some_to_dos: @to_dos}
 
 #map-container
   #map-canvas{data: {to_dos: @to_dos_json ,style: "position: fixed; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223);" }}
