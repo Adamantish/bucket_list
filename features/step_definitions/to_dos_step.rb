@@ -5,23 +5,6 @@ Given(/^There are at least (\d+) destinations$/) do |arg1|
 
 end
 
-# Given(/^We expect to go to Delhi, India$/) do
-  
-#   Geocoder.configure(:lookup => :test)
-
-#   Geocoder::Lookup::Test.add_stub(
-#     "Delhi, India", [
-#       {
-#         'latitude'     => 28.6139391,
-#         'longitude'    => 77.2090212,
-#         'address'      => 'Delhi, India',
-#         'country'      => 'India'
-#       }
-#     ]
-#   )
-
-# end
-
 Given(/^A traveller is on the homepage$/) do
   visit root_path
 end

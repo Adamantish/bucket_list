@@ -21,7 +21,6 @@ Feature: Likings
     When the page is reloaded
     Then There is "1" likes
 
-  @wip
   @javascript
   Scenario: A traveller likes a ToDo which already has been liked
     Given Previn has logged in

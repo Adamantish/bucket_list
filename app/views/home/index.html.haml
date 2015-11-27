@@ -3,6 +3,13 @@
 
 .heading The Bucket List
 
+.search
+  = form_tag search_to_dos_path do
+    %fieldset
+      = label_tag :search
+      = text_field_tag :search
+      #search-results
+
 #bucket
   = form_for @todo ,remote: true do |f|
     %fieldset

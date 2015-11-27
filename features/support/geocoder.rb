@@ -10,3 +10,14 @@ Geocoder::Lookup::Test.add_stub(
     }
   ]
 )
+
+Geocoder::Lookup::Test.add_stub(
+  "Torquay, UK", [
+    {
+      'latitude'     => 50.4619209,
+      'longitude'    => -3.525315,
+      'address'      => 'Torquay, Torbay, UK',
+      'country'      => 'UK'
+    }
+  ]
+)

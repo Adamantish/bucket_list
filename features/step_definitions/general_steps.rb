@@ -1,5 +1,5 @@
 Given(/^a traveller is on the homepage$/) do
-  click_link "Show photos"
+  visit root_path
 end
 
 When(/^the page is reloaded$/) do

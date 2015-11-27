@@ -14,12 +14,17 @@ class ToDosController < ApplicationController
   def create_like
     @to_do = ToDo.find(params["id"])
     @to_do.travellers << current_traveller
-    @likes = @to_do.likes.length
+    @likes = @to_do.likes.count
     render partial: 'liked'
   end
 
   def delete_like
 
+  end
+
+  def search
+    @to_dos = ToDo.where("description LIKE ?", "%#{params[:search]}%")
+    render json: @to_dos
   end
 
   private

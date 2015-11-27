@@ -21,6 +21,9 @@ Rails.application.routes.draw do
         delete 'delete_like'
       end
 
+      collection do 
+        get 'search'
+      end
 
     end
 
