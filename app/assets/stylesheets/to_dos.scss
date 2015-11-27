@@ -2,7 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+header.devise-header > p {
+    margin: 0 0 0.1em 0;
+      position: fixed;
+  z-index: 1;
+  top: 3.3em;
+  padding: 0.5em;
+  border-radius: 4px;
+  margin-left: 72%;
+  margin-right: 1em;
 
+}
+
+.message {
+
+}
+
+.alert {
+  background-color:rgba(224, 158, 188, 0.84);
+}
+
+.notice {
+
+}
 .heading {
 
   font-size: 1.3em;
@@ -32,10 +54,11 @@ fieldset {
 
 fieldset > * {
   font-size: 1.5rem;
-  border: none;
+
 }
 
 fieldset > label {
+
   width: 2em;
   display: block;
   font-size: small;
@@ -60,16 +83,15 @@ fieldset > input , fieldset > select {
   font-size: 1.5rem;
 }
 
-#new_to_do {
+/*#new_to_do {
   box-shadow: 0.2em 0.2em 1.5em grey;
   background-color: white;
 
-}
+}*/
 
-.to_do {
+.shadow-box {
 
   background-color: white;
-  /*border-radius: 2px;*/
   box-shadow: 0.2em 0.5em 1.2em grey;
   padding: 1.3em;
   margin-bottom: 2em;
@@ -83,14 +105,33 @@ fieldset > input , fieldset > select {
 }
 
 #btn__add-to_do {
+
     padding: 0.5em;
     font-size: 1em;
     margin: 1em 0.5em;
     cursor: pointer;
 }
 
-.click--photos {
+#fieldset__search {
+  background-color: transparent;
+  width: 20em;
+  position: fixed;
+  top: -1em;
+  z-index: 1;
+}
 
+#search-results {
+
+}
+
+
+#container--search-results{
+  width:26em;
+  position: fixed;
+  top: 1.5em;
+}
+
+.click--photos {
   display: block;
 }
 

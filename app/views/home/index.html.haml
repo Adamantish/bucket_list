@@ -1,17 +1,23 @@
-= link_to "Register", new_traveller_registration_path
-= link_to "Log In", new_traveller_session_path
+%nav
+  .search
+    = form_tag search_to_dos_path  do
+      %fieldset#fieldset__search
+        = label_tag :search
+        = text_field_tag :search
+      .shadow-box.undisplayed#container--search-results
+        %fieldset
+          #search-results
+        %input#btn--search{type: "submit"}
+    
+  .heading The Bucket List
 
-.heading The Bucket List
+  = link_to "Register", new_traveller_registration_path
+  = link_to "Log In", new_traveller_session_path
 
-.search
-  = form_tag search_to_dos_path do
-    %fieldset
-      = label_tag :search
-      = text_field_tag :search
-      #search-results
+
 
 #bucket
-  = form_for @todo ,remote: true do |f|
+  = form_for @todo ,remote: true , class: "shadow-box" do |f|
     %fieldset
       = f.label :destination
       = f.select :destination_id , @destination_options , selected: 0
@@ -23,14 +29,15 @@
     %fieldset
       = f.label "Where"
       = f.text_field :address
-
-    %button#btn__add-to_do Bucket It
+    %fieldset
+      %button#btn__add-to_do Bucket It
   
-  %select#select--sort-to_dos
-    %option{ value: "data"}
-      ^A-Z
-    %option{selected: "selected", value: "data_id"}
-      ^1,2,3..
+  .shadow-box
+    %select#select--sort-to_dos
+      %option{ value: "data"}
+        ^A-Z
+      %option{selected: "selected", value: "data_id"}
+        ^1,2,3..
 
   #to_dos
     = render partial: 'to_dos/to_dos', locals: {some_to_dos: @to_dos}

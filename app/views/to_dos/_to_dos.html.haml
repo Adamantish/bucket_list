@@ -1,6 +1,6 @@
 
 - @to_dos.each do |t|
-  .to_do{data: "#{t.description}" , data_id: "#{t.id}"}
+  .to_do.shadow-box{data: "#{t.description}" , data_id: "#{t.id}"}
     .h3.to_do__title
       = t.description
     %p

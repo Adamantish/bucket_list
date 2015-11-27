@@ -25,6 +25,9 @@ class ToDosController < ApplicationController
   def search
     @to_dos = ToDo.where("description LIKE ?", "%#{params[:search]}%")
     render json: @to_dos
+    # respond_to do 
+      
+    # end
   end
 
   private
