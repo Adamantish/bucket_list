@@ -31,7 +31,6 @@ end
 
 When(/^A traveller selects a destination$/) do
   select "India", from: "to_do[destination_id]"
-  save_and_open_page
 end
 
 When(/^Enters valid ToDo details$/) do
@@ -48,4 +47,22 @@ Then(/^The ToDo is added to the list$/) do
   sleep 1
   expect(page).to have_content "Get Spiritual"
   expect(page).to have_content "Delhi"
+end
+
+When(/^a traveller chooses to edit$/) do
+  click_link "for-test-edit-link"
+end
+
+Then(/^a traveller sees edit form$/) do
+  within('#to_dos') do 
+    expect(page).to have_content("Bucket It")
+  end
+end
+
+When(/^a traveller cancels edit$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^the unedited ToDo is restored$/) do
+  pending # express the regexp above with the code you wish you had
 end

@@ -1,7 +1,7 @@
 
 - @to_dos.each do |t|
   .to_do.shadow-box{data: "#{t.description}" , data_id: "#{t.id}"}
-    = link_to image_tag('edit-icon.png') , edit_to_do_path(t), {class: "edit-link", remote: true}
+    = link_to image_tag('edit-icon.png') , edit_to_do_path(t), {id: "for-test-edit-link" , class: "edit-link", remote: true}
     .h3.to_do__title
       = t.description
     %p

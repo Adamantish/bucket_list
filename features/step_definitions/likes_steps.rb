@@ -23,7 +23,6 @@ Given(/^The ToDo is already liked by "(.*?)"$/) do |traveller|
 end
 
 Given(/^The ToDo has no likes$/) do
-  save_and_open_page
  
 end
 

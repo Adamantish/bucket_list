@@ -25,5 +25,20 @@ Scenario: A traveller adds a ToDo item
 
 @wip
 @javascript
-Scenario: A traveller edits a ToDo item
-  Given
+Scenario: A traveller cancels their edit of a ToDo item
+  Given a traveller has a to do in their bucket list
+    And a traveller is on the homepage
+  When a traveller chooses to edit
+  Then a traveller sees edit form
+  When a traveller cancels edit
+  Then the unedited ToDo is restored
+
+@wip
+@javascript
+Scenario: A traveller cancels their edit of a ToDo item
+  Given a traveller has a to do in their bucket list
+    And a traveller is on the homepage
+  When a traveller chooses to edit
+  Then a traveller sees edit form
+  When a traveller fills edit form with valid details
+

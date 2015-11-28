@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$tiny_icon_size: 18px;
+
 header.devise-header > p {
     margin: 0 0 0.1em 0;
       position: fixed;
@@ -81,8 +83,8 @@ fieldset > input , fieldset > select, #destination__search-opts {
 #select--sort-to_dos {
   font-size: 1.5rem;
 }
-
-/*#new_to_do {
+/*
+#new_to_do {
   box-shadow: 0.2em 0.2em 1.5em grey;
   background-color: white;
 
@@ -141,4 +143,32 @@ fieldset > input , fieldset > select, #destination__search-opts {
   float: right;
   /*cursor: pointer;*/
 
+}
+
+.sprite {
+
+  background: url(/assets/sprite.png);
+
+  &--tiny {
+    @extend .sprite ;
+    width: $tiny_icon_size;
+    height: $tiny_icon_size;
+
+    &__close {
+      background-position: calc(23 * -#{$tiny_icon_size}) -108px;
+    }
+
+  }
+
+
+
+}
+
+.icon {
+
+  &__close-edit {
+    top: 0;
+    left: 20.5em;
+    position: relative;
+  }
 }

@@ -1,4 +1,14 @@
 
+
+window.toDos = {}
+
+var ToDo = function(id, selector){
+  this.id = id
+  this.$el = $(selector)
+  window.toDos[id] = this
+}
+
+
 $(document).ready(function() {
 
   // var $butt = $('#btn__add-to_do')
@@ -31,3 +41,6 @@ function sortElements(selector, sort_by) {
 
 };
 
+function cancelToDoEdit(toDoId) {
+
+};
