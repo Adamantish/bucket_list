@@ -29,7 +29,7 @@ header.devise-header > p {
   font-size: 1.3em;
   font-weight: bold;
   padding-bottom: 0.5em;
-  text-align: center;
+  padding-left: 1em;
   position: fixed;
   width: 100%;
   color: #f2f2f2;
@@ -65,7 +65,7 @@ fieldset > label {
   margin-bottom: 0.5em;
 }
 
-fieldset > input , fieldset > select {
+fieldset > input , fieldset > select, #destination__search-opts {
   margin-left: 1em;
   margin-right: auto;
   border: solid #f2f2f2 1px;
@@ -97,9 +97,16 @@ fieldset > input , fieldset > select {
 }
 
 #bucket {
-  float:left;
+  position: relative; 
   display: inline;
-  width: 26em;
+  float:left;
+  z-index: -1;
+
+}
+
+.nav__left {
+  width: 29rem;
+  display: inline;
 
 }
 
@@ -111,30 +118,6 @@ fieldset > input , fieldset > select {
     cursor: pointer;
 }
 
-#fieldset__search {
-  background-color: transparent;
-  width: 20em;
-  position: fixed;
-  top: -1em;
-  z-index: 1;
-}
-
-#search-results {
-
-}
-
-#btn--search {
-    position: relative;
-    left: 16em;
-    top: -1.58em;
-    font-size: 1em;
-}
-
-#container--search-results{
-  width:26em;
-  position: fixed;
-  top: 1.5em;
-}
 
 .click--photos {
   display: block;

@@ -18,9 +18,9 @@ function initMap() {
     addMarkers(toDos)
   };
 
-  $('#to_do_destination_id').on("change", function(event) {
+  $('#destination__search-opts').on("change", function(event) {
     // debugger;
-    var dest_id = $("#to_do_destination_id").val()
+    var dest_id = $("#destination__search-opts").val()
     showOnlyMarkersFor(dest_id) 
   });
  };
@@ -73,7 +73,6 @@ function showToDosInBounds() {
     } else {
       $foundItem.addClass("undisplayed")
     };
-
   });
 };
 

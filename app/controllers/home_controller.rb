@@ -4,7 +4,8 @@ class HomeController < ApplicationController
 
   def index
     @edit_or_new_to_do = ToDo.new()
-    @destination_options = get_select_options(Destination.all)
+    @destinations = Destination.all
+    @destination_options = get_select_options(@destinations)
     # TODO: Remove next line and instead enable prompt
     @destination_options.unshift(["",0])
     @to_dos = ToDo.all
