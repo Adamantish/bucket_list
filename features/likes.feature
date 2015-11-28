@@ -2,9 +2,11 @@
 Feature: Likings
   
   Background:
-    Given Kurt and Previn sadly exist
+    Given Kurt and Previn sadly exist as travellers
 
   Scenario: A visitor cannot click like button
+    Given a traveller has some to dos in their bucket list
+    Then   There are no Like buttons visible
 
   @javascript
   Scenario: A traveller likes a ToDo which isn't already liked

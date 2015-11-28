@@ -1,4 +1,4 @@
-Given(/^Kurt and Previn sadly exist$/) do
+Given(/^Kurt and Previn sadly exist as travellers$/) do
   @kurt = Traveller.create!(name: "Kurt", email: "new@sage.trav.com", password: "LikeTotally")
   @previn = Traveller.create!(name: "Previn", email: "Sweety@sage.trav.com", password: "LikeYahally")
 end

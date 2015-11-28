@@ -152,3 +152,10 @@ fieldset > input , fieldset > select {
 .undisplayed {
   display: none;
 }
+
+.edit-link {
+  display: inline-block;
+  float: right;
+  /*cursor: pointer;*/
+
+}

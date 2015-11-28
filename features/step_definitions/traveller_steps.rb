@@ -28,7 +28,7 @@ Given(/^A traveller exists$/) do
   Traveller.create!(name: "Adam", email: "blah@blah.com", password: "password")
 end
 
-When(/^A visitor selects Log In$/) do
+When(/^A visitor Logs In as that traveller$/) do
   click_on "Log In"
 end
 

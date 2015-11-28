@@ -1,0 +1,7 @@
+
+var formHTML = "<%= j(render partial: 'edit') %>"
+
+var toToID = <%= @edit_or_new_to_do.id %>
+var $toDo = $("div[data_id=" + toToID + "]")
+
+$toDo.html(formHTML)

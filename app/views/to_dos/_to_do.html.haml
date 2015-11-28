@@ -1,0 +1,13 @@
+
+.to_do.shadow-box{data: "#{to_do.description}" , data_id: "#{to_do.id}"}
+  = link_to image_tag('edit-icon.png') , edit_to_do_path(to_do), {class: "edit-link", remote: true}
+  .h3.to_do__title
+    = to_do.description
+
+  %p
+    Location: #{to_do.address}
+  = link_to "show snaps", photos_to_do_path(to_do) , {class: "click--photos", remote: true}
+  .container--like
+    = link_to "Like" , create_like_to_do_path(to_do), {method: "POST", remote: true}
+    .num_of_likes
+      = to_do.likes.length == 0 ? "" : to_do.likes.length

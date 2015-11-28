@@ -12,28 +12,15 @@
               = render partial: 'search'
     
   .heading The Bucket List
-
-  = link_to "Register", new_traveller_registration_path
-  = link_to "Log In", new_traveller_session_path
+  #nav-buttons
+    = link_to "Register", new_traveller_registration_path
+    = link_to "Log In", new_traveller_session_path
 
 
 
 #bucket
-  = form_for @todo ,remote: true , class: "shadow-box" do |f|
-    %fieldset
-      = f.label :destination
-      = f.select :destination_id , @destination_options , selected: 0
-
-    %fieldset
-      = f.label "What"
-      = f.text_field :description
-
-    %fieldset
-      = f.label "Where"
-      = f.text_field :address
-    %fieldset
-      %button#btn__add-to_do Bucket It
-  
+  = form_for @edit_or_new_to_do ,remote: true , authenticity_token: true do |f|
+    = render partial: 'to_dos/edit', locals: { f: f, destination_options: @destination_options}
   .shadow-box
     %select#select--sort-to_dos
       %option{ value: "data"}
@@ -42,7 +29,7 @@
         ^1,2,3..
 
   #to_dos
-    = render partial: 'to_dos/to_dos', locals: {some_to_dos: @to_dos}
+    = render partial: @to_dos
 
 #map-container
   #map-canvas{data: {to_dos: @to_dos_json ,style: "position: fixed; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223);" }}

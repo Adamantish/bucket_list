@@ -3,7 +3,7 @@ Feature: ToDo Editing
 Scenario: A traveller opens Bucket List for the first time
   Given Nothing
 
-Scenario: A traveller adds a ToDo item
+Scenario: A traveller adds a ToDo item without javascript
   Given There are at least 2 destinations
     And A traveller is on the homepage
   When A traveller selects a destination 
@@ -13,7 +13,7 @@ Scenario: A traveller adds a ToDo item
   Then The ToDo is added to the list
 
 @javascript
-Scenario: A traveller adds a ToDo item
+Scenario: A traveller adds a ToDo item with JS
   Given There are at least 2 destinations
     And A traveller is on the homepage
   When A traveller selects a destination 

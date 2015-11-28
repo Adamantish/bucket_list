@@ -1,4 +1,14 @@
 
+Given(/^a traveller has some to dos in their bucket list$/) do
+  @destination = Destination.create!(name: "India")
+  ToDo.create!(description: "Ride Elephant", address: "Delhi", destination: @destination)
+
+  @uk = Destination.create!(name: "UK")
+  ToDo.create!(description: "Ride in an aircraft", address: "Torquay", destination: @uk)
+  # ToDo.create!(description: "Ride Pachyderm", address: "Mumbai", destination: @destination)
+
+end
+
 Given(/^There are at least (\d+) destinations$/) do |arg1|
   Destination.create!(name: "India")
   Destination.create!(name: "Finland")
@@ -19,16 +29,16 @@ When(/^A traveller selects a destination$/) do
 end
 
 When(/^Enters valid ToDo details$/) do
-  fill_in "to_do[description]", with: "Eat dirt"
+  fill_in "to_do[description]", with: "Get Spiritual"
   fill_in "to_do[address]", with: "Delhi"
-
 end
 
 When(/^Submits the ToDo$/) do
-  click_button "btn__add-to_do"
+  click_on "btn__add-to_do"
 end
 
 Then(/^The ToDo is added to the list$/) do
-  expect(page).to have_content "Eat dirt"
-  expect(page).to have_content "Outback Go-Karts"
+  sleep 1
+  expect(page).to have_content "Get Spiritual"
+  expect(page).to have_content "Delhi"
 end
