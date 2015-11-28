@@ -12,9 +12,9 @@ Scenario: A traveller adds a ToDo item without javascript
     And Submits the ToDo
   Then The ToDo is added to the list
 
-@wip
+
 @javascript
-Scenario: A traveller adds a ToDo item with JS
+Scenario: A traveller adds a ToDo item
   Given There are at least 2 destinations
     And A traveller is on the homepage
   When A traveller selects a destination 
@@ -22,3 +22,8 @@ Scenario: A traveller adds a ToDo item with JS
     And Enters valid ToDo details
     And Submits the ToDo
   Then The ToDo is added to the list
+
+@wip
+@javascript
+Scenario: A traveller edits a ToDo item
+  Given

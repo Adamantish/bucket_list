@@ -11,7 +11,6 @@ Feature: Search Bucketlist
     When I finish typing out my search
     Then I should see all matching searches
 
-  @wip
   Scenario: A traveller searches for an existing ToDo Item via HTML
     Given they start searching for a todo item
     When  I submit the search

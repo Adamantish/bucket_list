@@ -23,6 +23,7 @@ Given(/^The ToDo is already liked by "(.*?)"$/) do |traveller|
 end
 
 Given(/^The ToDo has no likes$/) do
+  save_and_open_page
  
 end
 
@@ -38,4 +39,3 @@ When(/^The ToDo is liked by current traveller$/) do
 Then(/^the like option is replaced with an unlike option$/) do
   pending # express the regexp above with the code you wish you had
 end
-
