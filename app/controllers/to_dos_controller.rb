@@ -45,7 +45,7 @@ class ToDosController < ApplicationController
         #This is copy paste of the index controller. 
         #Couldn't figure out how to redirect to it with a payload of search results.
         #Url would have been very long
-          @todo = ToDo.new()
+          @edit_or_new_to_do = ToDo.new()
           @destination_options = get_select_options(Destination.all)
           # @destination_options.unshift(["",0])
           @to_dos = ToDo.all.includes(:likes)

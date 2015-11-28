@@ -6,6 +6,7 @@ $(document).ready( function() {
   $('#search').keyup( function(e){return makeSearch(e)} )
 });
 
+// TODO: Refactor to remove this and instead use the existing _search partial for dryness.
 function makeSearch(e){
 
   var searchTerm =  $(e.currentTarget).val();

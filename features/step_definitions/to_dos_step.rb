@@ -5,8 +5,7 @@ Given(/^a traveller has some to dos in their bucket list$/) do
 
   @uk = Destination.create!(name: "UK")
   ToDo.create!(description: "Ride in an aircraft", address: "Torquay", destination: @uk)
-  # ToDo.create!(description: "Ride Pachyderm", address: "Mumbai", destination: @destination)
-
+ 
 end
 
 Given(/^There are at least (\d+) destinations$/) do |arg1|
@@ -24,8 +23,8 @@ Given(/^A traveller chooses to add a ToDo$/) do
 end
 
 When(/^A traveller selects a destination$/) do
-  # save_and_open_page
   select "India", from: "to_do[destination_id]"
+  save_and_open_page
 end
 
 When(/^Enters valid ToDo details$/) do
@@ -35,6 +34,7 @@ end
 
 When(/^Submits the ToDo$/) do
   click_on "btn__add-to_do"
+  save_and_open_page
 end
 
 Then(/^The ToDo is added to the list$/) do

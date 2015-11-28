@@ -1,4 +1,4 @@
-= form_for @edit_or_new_to_do ,remote: true, class: "shadow-box"do |f|
+= form_for edit_to_do ,remote: true, class: "shadow-box"do |f|
   = f.text_field :id , {class: "undisplayed"}
   %fieldset
     = f.label :destination

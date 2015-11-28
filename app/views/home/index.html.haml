@@ -19,8 +19,8 @@
 
 
 #bucket
-  = form_for @edit_or_new_to_do ,remote: true , authenticity_token: true do |f|
-    = render partial: 'to_dos/edit', locals: { f: f, destination_options: @destination_options}
+  / = form_for @edit_or_new_to_do ,remote: true , authenticity_token: true do |f|
+  = render partial: 'to_dos/edit', locals: { edit_to_do: @edit_or_new_to_do, destination_options: @destination_options}
   .shadow-box
     %select#select--sort-to_dos
       %option{ value: "data"}
