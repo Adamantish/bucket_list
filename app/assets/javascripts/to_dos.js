@@ -20,10 +20,11 @@ $(document).ready(function() {
   //   $('#new_to_do').css("opacity", "0")
 
   // });
-  $('#map-canvas').attr("style", "position: fixed; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223);")
-  $('#select--sort-to_dos').on("change", function(e){
+   $('#select--sort-to_dos').on("change", function(e){
     sortElements("#to_dos", $(e.target).val())
   });
+
+   toggleNewToDo();
 
 });
 
@@ -49,6 +50,10 @@ function cancelToDoEdit(toDoID) {
   if(toDoID){
     return toDos[toDoID].cancelEdit()
   } else {
-    $('#new_to_do').html("<button id='btn__new_to_do'>+</button>")
+   toggleNewToDo()
   };
+};
+
+function toggleNewToDo() {
+  $('#add__to_do').children().toggleClass("undisplayed")
 };

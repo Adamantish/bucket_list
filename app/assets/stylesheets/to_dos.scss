@@ -67,7 +67,7 @@ fieldset > label {
   margin-bottom: 0.5em;
 }
 
-fieldset > input , fieldset > select, #destination__search-opts, #select--sort-to_dos {
+fieldset > input , fieldset > select, #destination__search-opts, #select--sort-to_dos, #btn__new_to_do {
   margin-left: 1em;
   margin-right: auto;
   border: solid #f2f2f2 1px;
@@ -116,10 +116,16 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
 
 #add__to_do {
 
-  text-align: center;
 }
 
 #btn__new_to_do {
+  margin-left: 47%;
+  font-size: 1.3rem;
+  color: white;
+  background-color: #A3BFE8;
+  width: 2.5rem;
+  height: 2rem;
+  padding: 0 0rem 0.3rem 0;
 
 }
 
@@ -146,6 +152,10 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
 }
 
 .undisplayed {
+  display: none;
+}
+
+.perm-undisplayed {
   display: none;
 }
 
