@@ -42,3 +42,16 @@ Scenario: A traveller cancels their edit of a ToDo item
   Then a traveller sees edit form
   When a traveller fills edit form with valid details
 
+@wip
+@javascript
+Scenario: A traveller deletes a todo item
+    Given a traveller has a to do in their bucket list
+    And a traveller is on the homepage
+    When a traveller chooses to delete
+    Then they are asked to confirm they'd like to delete
+    When they confirm they'd like to delete
+    Then the ToDo item is deleted
+
+  
+
+

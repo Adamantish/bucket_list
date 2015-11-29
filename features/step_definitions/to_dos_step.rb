@@ -66,3 +66,23 @@ end
 Then(/^the unedited ToDo is restored$/) do
   pending # express the regexp above with the code you wish you had
 end
+
+When(/^a traveller fills edit form with valid details$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+When(/^a traveller chooses to delete$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^they are asked to confirm they'd like to delete$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+When(/^they confirm they'd like to delete$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^the ToDo item is deleted$/) do
+  pending # express the regexp above with the code you wish you had
+end
