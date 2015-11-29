@@ -67,7 +67,7 @@ fieldset > label {
   margin-bottom: 0.5em;
 }
 
-fieldset > input , fieldset > select, #destination__search-opts {
+fieldset > input , fieldset > select, #destination__search-opts, #select--sort-to_dos {
   margin-left: 1em;
   margin-right: auto;
   border: solid #f2f2f2 1px;
@@ -81,7 +81,9 @@ fieldset > input , fieldset > select, #destination__search-opts {
 }*/
 
 #select--sort-to_dos {
-  font-size: 1.5rem;
+  position: fixed;
+  font-size: 1.3rem;
+  left: 51rem;
 }
 /*
 #new_to_do {
@@ -107,8 +109,17 @@ fieldset > input , fieldset > select, #destination__search-opts {
 }
 
 .nav__left {
-  width: 29rem;
+  width: 31.5rem;
   display: inline;
+
+}
+
+#add__to_do {
+
+  text-align: center;
+}
+
+#btn__new_to_do {
 
 }
 
@@ -157,18 +168,14 @@ fieldset > input , fieldset > select, #destination__search-opts {
     &__close {
       background-position: calc(23 * -#{$tiny_icon_size}) -108px;
     }
-
   }
-
-
-
 }
 
 .icon {
 
   &__close-edit {
     top: 0;
-    left: 20.5em;
+    left: 22.8em;
     position: relative;
   }
 }

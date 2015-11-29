@@ -41,8 +41,6 @@ function makeSearch(e){
           };
 
         $('#container--search-results').removeClass('undisplayed')
-
-
       }
     })
   };

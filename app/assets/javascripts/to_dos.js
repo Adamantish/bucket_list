@@ -5,9 +5,13 @@ window.toDos = {}
 var ToDo = function(id, selector){
   this.id = id
   this.$el = $(selector)
+  this.html = $(selector).html()
   window.toDos[id] = this
 }
 
+ToDo.prototype.cancelEdit = function() {
+  this.$el.html(this.html)
+};
 
 $(document).ready(function() {
 
@@ -41,6 +45,10 @@ function sortElements(selector, sort_by) {
 
 };
 
-function cancelToDoEdit(toDoId) {
-
+function cancelToDoEdit(toDoID) {
+  if(toDoID){
+    return toDos[toDoID].cancelEdit()
+  } else {
+    $('#new_to_do').html("<button id='btn__new_to_do'>+</button>")
+  };
 };

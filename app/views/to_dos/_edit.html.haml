@@ -1,7 +1,6 @@
 = form_for edit_to_do ,{remote: true} do |f|
   = f.text_field :id , {class: "undisplayed "}
 
- 
   .icon__close-edit.sprite--tiny.sprite--tiny__close{ onclick: "cancelToDoEdit(#{edit_to_do.id})"}
 
   %fieldset
