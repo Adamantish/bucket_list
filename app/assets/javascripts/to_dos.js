@@ -13,6 +13,10 @@ ToDo.prototype.cancelEdit = function() {
   this.$el.html(this.html)
 };
 
+ToDo.prototype.insertUpdatedToDo = function(newHTML) {
+  this.$el.html(newHTML)
+};
+
 $(document).ready(function() {
 
   // var $butt = $('#btn__add-to_do')
@@ -53,6 +57,7 @@ function cancelToDoEdit(toDoID) {
    toggleNewToDo()
   };
 };
+
 
 function toggleNewToDo() {
   $('#add__to_do').children().toggleClass("undisplayed")
