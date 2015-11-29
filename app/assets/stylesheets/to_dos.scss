@@ -160,8 +160,8 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
 }
 
 .edit-link {
+  position: relative;
   display: inline-block;
-  float: right;
   /*cursor: pointer;*/
 
 }
@@ -176,16 +176,37 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
     height: $tiny_icon_size;
 
     &__close {
+      @extend .sprite--tiny;
       background-position: calc(23 * -#{$tiny_icon_size}) -108px;
+    }
+
+    &__trash {
+      @extend .sprite--tiny ;
+      background-position: calc(25 * -#{$tiny_icon_size}) -108px;
     }
   }
 }
 
+.container__to_do_actions {
+  position: absolute;
+  text-align: right;
+  width: 28.5rem;
+}
+
 .icon {
+  top: 0;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
 
   &__close-edit {
-    top: 0;
+    @extend .icon;
     left: 22.8em;
-    position: relative;
   }
+
+  &__trash {
+    @extend .icon;
+   
+  }
+
 }
