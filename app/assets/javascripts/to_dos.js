@@ -9,12 +9,29 @@ var ToDo = function(id, selector){
   window.toDos[id] = this
 }
 
-ToDo.prototype.cancelEdit = function() {
-  this.$el.html(this.html)
-};
+  ToDo.prototype.cancelEdit = function() {
+    this.$el.html(this.html)
+  };
 
-ToDo.prototype.insertUpdatedToDo = function(newHTML) {
-  this.$el.html(newHTML)
+  ToDo.prototype.insertUpdatedToDo = function(newHTML) {
+    this.$el.html(newHTML)
+  };
+
+  ToDo.prototype.deleteMe = function() {
+    var thisToDo = this
+    $.ajax({
+      url: "/to_dos/" + this.id ,
+      type: "DELETE"
+      ,
+    success: function() {thisToDo.$el.remove()}
+    })
+  };
+// ----------------------------------------------------
+
+var deleteToDoConfirm = function(id) {
+  var storedToDo = new ToDo(id, "div[data_id=" + id + "]")
+
+  storedToDo.$el.html("<p>Are you sure you want to delete?</p><button onclick='toDos[" + id + "].cancelEdit()'>Cancel</button><button onclick='toDos[" + id + "].deleteMe()'>Yes</button>")
 };
 
 $(document).ready(function() {
@@ -58,7 +75,7 @@ function cancelToDoEdit(toDoID) {
   };
 };
 
-
 function toggleNewToDo() {
   $('#add__to_do').children().toggleClass("undisplayed")
 };
+

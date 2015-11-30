@@ -11,13 +11,17 @@ class ToDosController < ApplicationController
   def edit
     @destination_options = get_select_options(Destination.all)
     @edit_or_new_to_do = ToDo.find(params["id"])
-
   end
 
   def update
     id = params["to_do"]["id"]
     @edited_to_do = ToDo.update(id, sane_params)
     render partial: 'edited'
+  end
+
+  def destroy
+    ToDo.destroy(params["id"].to_i)
+    render text: ""
   end
 
   def photos
