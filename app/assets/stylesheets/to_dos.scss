@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $tiny_icon_size: 18px;
+$left_nav_width: 31.5rem;
 
 header.devise-header > p {
     margin: 0 0 0.1em 0;
@@ -63,7 +64,7 @@ fieldset > label {
   width: 2em;
   display: block;
   font-size: small;
-  color: grey;
+  color: #2E2E2E;
   margin-bottom: 0.5em;
 }
 
@@ -81,9 +82,10 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
 }*/
 
 #select--sort-to_dos {
-  position: fixed;
   font-size: 1.3rem;
-  left: 51rem;
+  margin-right: 1rem; 
+
+  /*left: 51rem;*/
 }
 /*
 #new_to_do {
@@ -109,10 +111,26 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
 }
 
 .nav__left {
-  width: 31.5rem;
+  width: $left_nav_width;
   display: inline;
 
 }
+
+#nav-buttons {
+
+  left: $left_nav_width;
+  position: fixed;
+
+}
+
+#nav-buttons > a {
+  color: white;
+  border-left: solid 1px grey;
+  padding: 0 1rem;
+  text-decoration: none;
+}
+
+
 
 #add__to_do {
 
