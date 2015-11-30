@@ -125,7 +125,7 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
 
 #nav-buttons > a {
   color: white;
-  border-left: solid 1px grey;
+  border-left: solid 1px #444444;
   padding: 0 1rem;
   text-decoration: none;
 }
@@ -133,6 +133,8 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
 
 
 #add__to_do {
+  position: relative;
+  top: -3px;
 
 }
 
@@ -158,10 +160,20 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
 
 .click--photos {
   display: block;
+  font-size: 1rem;
+  margin-top: 0.5rem;
 }
 
 .container--like {
   display: inline-block;
+}
+
+.num_of_likes {
+  display: inline;
+  font-size: 1rem;
+  padding-top: 0px;
+  position: relative;
+  top: -3px;
 }
 
 .thumbnail {
@@ -201,6 +213,11 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
     &__trash {
       @extend .sprite--tiny ;
       background-position: calc(25 * -#{$tiny_icon_size}) -108px;
+    }
+
+    &__like {
+      @extend .sprite--tiny ;
+      background-position: calc(9 * -#{$tiny_icon_size}) -108px;
     }
   }
 }
