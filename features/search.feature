@@ -16,15 +16,17 @@ Feature: Search Bucketlist
     When  I submit the search
     Then I should see all matching searches
 
-   @javascript
+  @javascript
   Scenario: A traveller searches for something that doesn't exist
     Given they search for something ridiculous
     Then I should see a caveat saying "No Results"
 
+
   @javascript
+  @wip
   Scenario: A traveller makes search less than 3 characters
     Given they make a 2 character search
-    Then there are no search results
+    Then The search results container should not be displayed
 
   @javascript
   Scenario: A traveller deletes their search term

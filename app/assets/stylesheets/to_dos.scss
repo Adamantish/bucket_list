@@ -27,6 +27,11 @@ header.devise-header > p {
   background-color: rgba(119, 207, 183, 0.84);
 }
 
+.to_do {
+
+  transition: min-height;
+}
+
 .heading {
 
   font-size: 1.3em;
@@ -43,10 +48,11 @@ header.devise-header > p {
 
 .h3 {
 
-    display: block;
-    font-size: 1.17em;
-    padding-bottom: 0.3em;
-    font-weight: bold;
+  display: block;
+  font-size: 1.17em;
+  padding-bottom: 0.3em;
+  font-weight: bold;
+
 }
 
 fieldset {
@@ -56,11 +62,9 @@ fieldset {
 
 fieldset > * {
   font-size: 1.5rem;
-
 }
 
 fieldset > label {
-
   width: 2em;
   display: block;
   font-size: small;
@@ -84,6 +88,7 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
 #select--sort-to_dos {
   font-size: 1.3rem;
   margin-right: 1rem; 
+  font-style: italic;
 
   /*left: 51rem;*/
 }

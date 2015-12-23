@@ -7,7 +7,7 @@ Scenario: A traveller adds a ToDo item without javascript
   Given There are at least 2 destinations
     And A traveller is on the homepage
   When A traveller selects a destination 
-  # When A traveller chooses to add a ToDo
+  When A traveller chooses to add a ToDo
     And Enters valid ToDo details
     And Submits the ToDo
   Then The ToDo is added to the list
@@ -18,12 +18,11 @@ Scenario: A traveller adds a ToDo item
   Given There are at least 2 destinations
     And A traveller is on the homepage
   When A traveller selects a destination 
-  # When A traveller chooses to add a ToDo
+  When A traveller chooses to add a ToDo
     And Enters valid ToDo details
     And Submits the ToDo
   Then The ToDo is added to the list
 
-@wip
 @javascript
 Scenario: A traveller cancels their edit of a ToDo item
   Given a traveller has a to do in their bucket list
@@ -33,7 +32,7 @@ Scenario: A traveller cancels their edit of a ToDo item
   When a traveller cancels edit
   Then the unedited ToDo is restored
 
-@wip
+
 @javascript
 Scenario: A traveller cancels their edit of a ToDo item
   Given a traveller has a to do in their bucket list
@@ -42,7 +41,6 @@ Scenario: A traveller cancels their edit of a ToDo item
   Then a traveller sees edit form
   When a traveller fills edit form with valid details
 
-@wip
 @javascript
 Scenario: A traveller deletes a todo item
     Given a traveller has a to do in their bucket list

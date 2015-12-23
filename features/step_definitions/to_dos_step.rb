@@ -26,7 +26,7 @@ Given(/^A traveller is on the homepage$/) do
 end
 
 Given(/^A traveller chooses to add a ToDo$/) do
-  click 'Add Pebble'
+  click 'btn__new_to_do'
 end
 
 When(/^A traveller selects a destination$/) do

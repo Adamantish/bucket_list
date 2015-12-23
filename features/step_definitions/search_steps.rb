@@ -42,5 +42,12 @@ Given(/^they delete the search$/) do
 end
 
 Then(/^The search results container should not be displayed$/) do
-  expect(page).to have_css("#container--search-results.undisplayed")
+  # save_and_open_page
+  sleep 0.5
+  expect(find("#container--search-results")).to have_css(".undisplayed")
+end
+
+Given(/^they make a (\d+) character search$/) do |chars|
+  string = ''
+  chars.to_i.times {string << "a"}
 end

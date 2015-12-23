@@ -38,3 +38,7 @@ When(/^The ToDo is liked by current traveller$/) do
 Then(/^the like option is replaced with an unlike option$/) do
   pending # express the regexp above with the code you wish you had
 end
+
+Then(/^There are no Like buttons visible$/) do
+  pending # express the regexp above with the code you wish you had
+end
