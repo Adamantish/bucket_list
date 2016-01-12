@@ -10,7 +10,7 @@ $(document).ready( function() {
 function makeSearch(e){
 
   var searchTerm =  $(e.currentTarget).val();
-  if(searchTerm.length < 3){
+  if(searchTerm.length < 1){
     $('#container--search-results').addClass('undisplayed')
   } else {
     
@@ -27,24 +27,21 @@ function makeSearch(e){
 
 renderSearchResults = function(results) {
 
-
-  var searchResultListTempl = _.template("<h3><%= resultsNum %> Results</h3> <ul class='results'></ul>")
+  var searchResultListTempl = _.template("<h3><%= resultsNum == 0 ? 'No' : resultsNum %> Results</h3> <ul class='results'></ul>")
   var searchResultTempl = _.template("<li> <%= description %> </li>")
-
   var $resultList = $('#search-results');
 
-  if(results.length == 0) {
-    $resultList.html(searchResultListTempl({resultsNum: "No"}));
-  } else {
+  $resultList.html(searchResultListTempl({resultsNum: results.length}));
+  var $ulResults = $resultList.find('.results')
+  
+  _(results).each(function(result){
+    var liResult = searchResultTempl({description: result.description})
+    $ulResults.append(liResult)
+  });
 
-      $resultList.html(searchResultListTempl({resultsNum: results.length}));
-      var $ulResults = $resultList.find('.results')
-      _(results).each(function(result){
-        var liResult = searchResultTempl({description: result.description})
-        $ulResults.append(liResult)
-      });
-
-    };
+  // Filter displayed map markers
+  
+  // showOnlyMarkers
 
   $('#container--search-results').removeClass('undisplayed')
 

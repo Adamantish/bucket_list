@@ -1,6 +1,4 @@
 
-
-
 function initMap() {
   window.markers = []
   window.map = new google.maps.Map($('#map-canvas')[0], {
@@ -35,16 +33,14 @@ function addMarker(lat, lng, title, id) {
     id: id,
     map: map
   });
-  
 
   markers.push(marker);
-  map.latlngbounds.extend(myLatLng)
-  marker.addListener("click", function() { showModal(toDo)})
+  map.latlngbounds.extend(myLatLng);
+  marker.addListener("click", function() { showModal(toDo)});
 
 };
 
 function addMarkers(newToDos) {
-    
     _(newToDos).each(function(toDo) {
       addMarker(toDo.lat, toDo.lng, toDo.description, toDo.id)
     })  
@@ -61,6 +57,7 @@ function clearMarkers() {
     markers[i].setMap(null);
   }
   map.latlngbounds = new google.maps.LatLngBounds()
+  markers = [];
 };
 
 function showToDosInBounds() {
@@ -69,44 +66,53 @@ function showToDosInBounds() {
     var inBounds = map.getBounds().contains(marker.getPosition())
     
     if(inBounds){
-      $foundItem.removeClass("undisplayed")
+      $foundItem.removeClass("undisplayed");
     } else {
-      $foundItem.addClass("undisplayed")
+      $foundItem.addClass("undisplayed");
     };
   });
 };
 
-function showOnlyMarkersFor(destination_id) {
-  clearMarkers()
-  filteredToDos = toDos.filter(function(obj) { 
-    return obj.destination_id == destination_id
+function showOnlyMarkers(ids){
+  clearMarkers();
+  var filteredToDos = toDos.filter(function(toDo) {
+    return ids[toDo.id]
   });
-  addMarkers(filteredToDos)
+  addMarkers(filteredToDos);
+s};
+
+function showOnlyMarkersFor(destination_id) {
+  clearMarkers();
+  var filteredToDos = toDos.filter(function(toDo) { 
+    return toDo.destination_id == destination_id;
+  });
+  addMarkers(filteredToDos);
 };
 
-function showModal(toDo) {
+// function showModal(toDo) {
 
-  var $modalbk = $('<div></div>').attr("id", "modal-background")
-  var $modal = $('<div></div>').attr("id", "modal")
+//   var $modalbk = $('<div></div>').attr("id", "modal-background")
+//   var $modal = $('<div></div>').attr("id", "modal")
 
-  $modal.html(renderModal(toDo))
+//   $modal.html(renderModal(toDo))
 
-  $modal.css("left" , event.pageX + 10)
-  $modal.css("top" , event.pageY + 10)
-  $modalbk.click(function(){
-    this.remove()
-  })
+//   $modal.css("left" , event.pageX + 10)
+//   $modal.css("top" , event.pageY + 10)
+//   $modalbk.click(function(){
+//     this.remove()
+//   })
 
-  $modalbk.append($modal)
-  // $('body').append($modalbk.append($modal))
+//   $modalbk.append($modal)
+//   // $('body').append($modalbk.append($modal))
 
-$('body').append($modalbk)}
+//   $('body').append($modalbk)
+// }
 
 
-function renderModal(data) {
+// function renderModal(data) {
 
-var template = _.template("<h1><%= description %></h1><p>Location: <%= address %></p>")
+// var template = _.template("<h1><%= description %></h1><p>Location: <%= address %></p>")
 
- return template(data)
+//  return template(data)
 
-};
+// };
