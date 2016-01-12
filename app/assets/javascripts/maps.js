@@ -3,8 +3,8 @@ function initMap() {
   window.markers = []
   window.map = new google.maps.Map($('#map-canvas')[0], {
 
-    center: {lat: 11.689248, lng: 21.518491},
-    zoom: 3
+    // center: {lat: 11.689248, lng: 21.518491},
+    // zoom: 3
    });
 
   map.addListener("idle", showToDosInBounds)
@@ -13,8 +13,7 @@ function initMap() {
   map.latlngbounds = new google.maps.LatLngBounds()
 
   if(map.toDos.length > 0) {
-    addMarkers(map.toDos)
-    fitMapToMarkers();
+    resetMarkers();
   };
 
   $('#destination__search-opts').on("change", function(event) {
@@ -22,7 +21,14 @@ function initMap() {
     var dest_id = $("#destination__search-opts").val()
     showOnlyMarkersFor(dest_id) 
   });
+
+  $('#btn--search').on("keyDown", function(e){ console.log( e)})
  };
+
+function resetMarkers(){
+    clearMarkers();
+    addMarkers(map.toDos)
+};
 
 function addMarker(lat, lng, title, id) {
 
@@ -38,7 +44,7 @@ function addMarker(lat, lng, title, id) {
   markers.push(marker);
   map.latlngbounds.extend(myLatLng);
   marker.addListener("click", function() { showModal(toDo)});
-
+  fitMapToMarkers();
 };
 
 function addMarkers(newToDos) {
@@ -66,12 +72,11 @@ function clearMarkers() {
 function showOnlyMarkers(ids){
   clearMarkers();
   var filteredToDos = map.toDos.filter(function(toDo) {
-
     return ids[toDo.id]
   });
   addMarkers(filteredToDos);
-  fitMapToMarkers();
-s};
+  showToDosInBounds();
+};
 
 function showOnlyMarkersFor(destination_id) {
   clearMarkers();
@@ -79,19 +84,23 @@ function showOnlyMarkersFor(destination_id) {
     return toDo.destination_id == destination_id;
   });
   addMarkers(filteredToDos);
-  fitMapToMarkers();
   showToDosInBounds();
 };
 
 function showToDosInBounds() {
-  markers.forEach(function(marker) {
-    var $foundItem = $("div[data_id=" + marker.id + "]")
+  map.toDos.forEach(function(toDo) {
+    var $foundItem = $("div[data_id=" + toDo.id + "]")
+    var marker = markers.filter( function (marker) {
+      return marker.id == toDo.id;
+    })[0];
+
+    $foundItem.addClass("undisplayed");
+    if( !marker ) { return };
+
     var inBounds = map.getBounds().contains(marker.getPosition())
     
     if(inBounds){
       $foundItem.removeClass("undisplayed");
-    } else {
-      $foundItem.addClass("undisplayed");
     };
   });
 };
