@@ -9,11 +9,11 @@ function initMap() {
 
   map.addListener("idle", showToDosInBounds)
 
-  window.toDos = $('#map-canvas').data('toDos');
+  window.map.toDos = $('#map-canvas').data('toDos');
   map.latlngbounds = new google.maps.LatLngBounds()
 
-  if(toDos.length > 0) {
-    addMarkers(toDos)
+  if(map.toDos.length > 0) {
+    addMarkers(map.toDos)
     fitMapToMarkers();
   };
 
@@ -63,11 +63,10 @@ function clearMarkers() {
   markers = [];
 };
 
-
 function showOnlyMarkers(ids){
-  
   clearMarkers();
-  var filteredToDos = toDos.filter(function(toDo) {
+  var filteredToDos = map.toDos.filter(function(toDo) {
+
     return ids[toDo.id]
   });
   addMarkers(filteredToDos);
@@ -76,7 +75,7 @@ s};
 
 function showOnlyMarkersFor(destination_id) {
   clearMarkers();
-  var filteredToDos = toDos.filter(function(toDo) { 
+  var filteredToDos = map.toDos.filter(function(toDo) { 
     return toDo.destination_id == destination_id;
   });
   addMarkers(filteredToDos);
@@ -85,7 +84,6 @@ function showOnlyMarkersFor(destination_id) {
 };
 
 function showToDosInBounds() {
-  
   markers.forEach(function(marker) {
     var $foundItem = $("div[data_id=" + marker.id + "]")
     var inBounds = map.getBounds().contains(marker.getPosition())

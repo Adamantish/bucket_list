@@ -7,6 +7,7 @@ var ToDo = function(id, selector){
   this.$el = $(selector);
   this.displayHeight = this.$el.height();
   this.editHeight = "20.7rem"
+  this.deleteHeight = "5.2rem"
   this.html = $(selector).html();
   window.toDos[id] = this;
 }
@@ -27,7 +28,6 @@ ToDo.prototype.transitionContent = function( newHTMLContent , setHeight ) {
       }
     }
   );
-
 };
 
 ToDo.prototype.cancelEdit = function() {
@@ -52,8 +52,8 @@ ToDo.prototype.deleteMe = function() {
 
 var deleteToDoConfirm = function(id) {
   var storedToDo = new ToDo(id, "div[data_id=" + id + "]")
-
-  storedToDo.$el.html("<p>Are you sure you want to delete?</p><button onclick='toDos[" + id + "].cancelEdit()'>Cancel</button><button onclick='toDos[" + id + "].deleteMe()'>Yes</button>")
+  deleteConfirmHTML = "<p>Are you sure you want to delete?</p><button onclick='toDos[" + id + "].cancelEdit()'>Cancel</button><button onclick='toDos[" + id + "].deleteMe()'>Yes</button>"
+  storedToDo.transitionContent( deleteConfirmHTML, storedToDo.deleteHeight)
 };
 
 $(document).ready(function() {
