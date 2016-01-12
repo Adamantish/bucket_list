@@ -14,6 +14,7 @@ function initMap() {
 
   if(toDos.length > 0) {
     addMarkers(toDos)
+    fitMapToMarkers();
   };
 
   $('#destination__search-opts').on("change", function(event) {
@@ -44,13 +45,15 @@ function addMarkers(newToDos) {
     _(newToDos).each(function(toDo) {
       addMarker(toDo.lat, toDo.lng, toDo.description, toDo.id)
     })  
-
-    map.fitBounds(map.latlngbounds)
-    if(map.zoom > 12){
-      map.setZoom(12)
-    };
-    map.setCenter(map.latlngbounds.getCenter())   
 }
+
+function fitMapToMarkers() {
+  map.fitBounds(map.latlngbounds)
+  if(map.zoom > 12){
+    map.setZoom(12)
+  };
+  map.setCenter(map.latlngbounds.getCenter())   
+};
 
 function clearMarkers() {
   for (var i = 0; i < markers.length; i++) {
@@ -60,7 +63,29 @@ function clearMarkers() {
   markers = [];
 };
 
+
+function showOnlyMarkers(ids){
+  
+  clearMarkers();
+  var filteredToDos = toDos.filter(function(toDo) {
+    return ids[toDo.id]
+  });
+  addMarkers(filteredToDos);
+  fitMapToMarkers();
+s};
+
+function showOnlyMarkersFor(destination_id) {
+  clearMarkers();
+  var filteredToDos = toDos.filter(function(toDo) { 
+    return toDo.destination_id == destination_id;
+  });
+  addMarkers(filteredToDos);
+  fitMapToMarkers();
+  showToDosInBounds();
+};
+
 function showToDosInBounds() {
+  
   markers.forEach(function(marker) {
     var $foundItem = $("div[data_id=" + marker.id + "]")
     var inBounds = map.getBounds().contains(marker.getPosition())
@@ -71,22 +96,6 @@ function showToDosInBounds() {
       $foundItem.addClass("undisplayed");
     };
   });
-};
-
-function showOnlyMarkers(ids){
-  clearMarkers();
-  var filteredToDos = toDos.filter(function(toDo) {
-    return ids[toDo.id]
-  });
-  addMarkers(filteredToDos);
-s};
-
-function showOnlyMarkersFor(destination_id) {
-  clearMarkers();
-  var filteredToDos = toDos.filter(function(toDo) { 
-    return toDo.destination_id == destination_id;
-  });
-  addMarkers(filteredToDos);
 };
 
 // function showModal(toDo) {
