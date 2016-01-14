@@ -1,7 +1,0 @@
-%h3
-  = "#{@numOfSearchResults} Results"
-#resultList
-  %ul.results
-    - @search_results.each do |result|
-      %li
-        = "#{result.description} in #{result.destination.name}"

@@ -41,7 +41,9 @@ class ToDosController < ApplicationController
   end
 
   def search
-    @search_results = ToDo.where("description LIKE ?", "%#{params[:search]}%")
+    # This parameter needs sanitising with a gem like Sequel .
+    # binding.pry
+    @search_results = ToDo.select(:id, :description, :address, "destinations.name" ).joins(:destination).where("description LIKE ?", "%#{params[:search]}%")
     @numOfSearchResults = @search_results.count == 0 ? "" : @search_results.count
 
     respond_to do |format|
@@ -49,8 +51,8 @@ class ToDosController < ApplicationController
       format.html do
 
         #This is copy paste of the index controller. 
-        #Couldn't figure out how to redirect to it with a payload of search results.
-        #Url would have been very long
+        #Have yet to figure out how to redirect to it with a payload of search results.
+        #A bit of technical debt here.
           @edit_or_new_to_do = ToDo.new()
           @destinations = Destination.all
           @destination_options = get_select_options(@destinations)

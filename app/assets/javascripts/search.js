@@ -43,6 +43,7 @@ renderSearchResults = function(results) {
     $ulResults.append(liResult)
   });
 
+  debugger;
   // Filter displayed map markers
   
   // showOnlyMarkers
