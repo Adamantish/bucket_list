@@ -126,6 +126,8 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
 
   left: $left_nav_width;
   position: fixed;
+  top: 0.7rem;
+
 
 }
 
@@ -140,11 +142,14 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
 
 #add__to_do {
   position: relative;
-  text-align: center;
   top: -3px;
 }
 
 #btn__new_to_do {
+  
+
+  position: relative;
+  left: 8rem;
   font-size: 1.3rem;
   color: white;
   background-color: #A3BFE8;
@@ -152,6 +157,10 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
   height: 2rem;
   padding: 0 0rem 0.3rem 0;
 
+  &--label {
+    position: relative;
+    left: 9rem;
+  }
 }
 
 #btn__add-to_do {

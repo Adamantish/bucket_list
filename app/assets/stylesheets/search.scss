@@ -13,13 +13,15 @@ fieldset.nav__left {
   background-color: transparent;
   width: 20em;
   position: fixed;
-  top: 0em;
+  top: 0.2rem;
   left: 13rem;
   z-index: 1;
 }
 
 #search {
-  width: 15.7rem;
+  width: 16.1rem;
+  font-size: 1.2rem;
+  padding: 0.2rem;
 }
 
 #search-results {
