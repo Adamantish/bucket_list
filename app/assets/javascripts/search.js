@@ -3,7 +3,11 @@ $(document).ready( function() {
   $('#btn--search').addClass('undisplayed')
   $('#container--search-results').addClass('undisplayed')
   
-  $('#search').keyup( function(e){return makeSearch(e)} )
+  $('#search').keyup( function(e){  
+    if( e.keyCode != 13 ) {
+      return makeSearch(e);
+    };
+  })
 });
 
 // TODO: Refactor to remove this and instead use the existing _search partial for dryness.

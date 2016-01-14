@@ -4,4 +4,4 @@
   %ul.results
     - @search_results.each do |result|
       %li
-        = result.description
+        = "#{result.description} in #{result.destination.name}"

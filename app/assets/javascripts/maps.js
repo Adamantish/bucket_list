@@ -1,5 +1,14 @@
 
 function initMap() {
+
+  $('#search').keypress( function(e){ 
+      if( e.keyCode == 13 ) {
+        e.preventDefault();
+        $('#container--search-results').addClass('undisplayed');
+        $('#search').blur();
+      };
+    } 
+   )
   window.markers = []
   window.map = new google.maps.Map($('#map-canvas')[0], {
 
@@ -22,7 +31,6 @@ function initMap() {
     showOnlyMarkersFor(dest_id) 
   });
 
-  $('#btn--search').on("keyDown", function(e){ console.log( e)})
  };
 
 function resetMarkers(){
