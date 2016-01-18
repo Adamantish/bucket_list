@@ -38,7 +38,10 @@ renderSearchResults = function(results) {
   $resultList.html(searchResultListTempl({resultsNum: results.length}));
   var $ulResults = $resultList.find('.results')
   
+  var ids = {};
+
   _(results).each(function(result){
+    ids[result.id] = "Nowt"
     var liResult = searchResultTempl({description: result.description})
     $ulResults.append(liResult)
   });
@@ -46,7 +49,7 @@ renderSearchResults = function(results) {
   debugger;
   // Filter displayed map markers
   
-  // showOnlyMarkers
+  showOnlyMarkers(ids)
 
   $('#container--search-results').removeClass('undisplayed')
 

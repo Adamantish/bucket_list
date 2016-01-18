@@ -79,6 +79,7 @@ function clearMarkers() {
 
 function showOnlyMarkers(ids){
   clearMarkers();
+  debugger;
   var filteredToDos = map.toDos.filter(function(toDo) {
     return ids[toDo.id]
   });
