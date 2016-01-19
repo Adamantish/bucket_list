@@ -42,13 +42,19 @@ class ToDosController < ApplicationController
 
   def search
     # This parameter needs sanitising with a gem like Sequel .
-    # binding.pry
-    @search_results = ToDo.where("description LIKE ?", "%#{params[:search]}%")
-    # @search_results = ToDo.select(:id, :description, :address, "destinations.name" ).joins(:destination).where("description LIKE ?", "%#{params[:search]}%")
+    @search_results = ToDo.includes(:destination).joins(:destination).where("description LIKE ?", "%#{params[:search]}%")
+    
+    @results_a = []
+    @search_results.each do |obj|
+      h = obj.attributes
+      h["destination_name"] = obj.destination.name
+      @results_a << h
+    end
+
     @numOfSearchResults = @search_results.count == 0 ? "" : @search_results.count
 
     respond_to do |format|
-      format.json {render json: @search_results}
+      format.json {render json: @results_a}
       format.html do
 
         #This is copy paste of the index controller. 

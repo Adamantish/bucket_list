@@ -79,10 +79,11 @@ function sortElements(selector, sort_by) {
     var aComparator = a.getAttribute(sort_by)
     var bComparator = b.getAttribute(sort_by)
 
-    if(aComparator < bComparator) { return -1
+    if (aComparator < bComparator) { 
+      return -1
     } else { 
       return 1
-    };
+    }
   });
 
   $kids.detach().appendTo(el)
