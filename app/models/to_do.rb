@@ -1,6 +1,7 @@
 class ToDo < ActiveRecord::Base
 
   belongs_to :destination
+  belongs_to :traveller
 
   has_many :likes
   has_many :travellers, :through => :likes

@@ -43,7 +43,7 @@ class ToDosController < ApplicationController
   def search
     # This parameter needs sanitising with a gem like Sequel .
     @search_results = ToDo.includes(:destination).joins(:destination).where("description LIKE ?", "%#{params[:search]}%")
-    
+
     @results_a = []
     @search_results.each do |obj|
       h = obj.attributes
