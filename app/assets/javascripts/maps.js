@@ -10,6 +10,7 @@ function initMap() {
       }
     } 
    );
+
   window.markers = [];
   window.map = new google.maps.Map($('#map-canvas')[0], {} );
 
@@ -18,12 +19,11 @@ function initMap() {
   window.map.toDos = $('#map-canvas').data('toDos');
   window.map.latlngbounds = new google.maps.LatLngBounds();
 
-  if(window.map.toDos.length > 0) {
+  if ( window.map.toDos.length > 0 ) {
     resetMarkers();
   }
 
   $('#destination__search-opts').on("change", function() {
-    // debugger;
     var dest_id = $("#destination__search-opts").val();
     showOnlyMarkersFor(dest_id);
   });
@@ -53,16 +53,16 @@ function addMarker(lat, lng, title, id) {
 
 function addMarkers(newToDos) {
     _(newToDos).each(function(toDo) {
-      addMarker(toDo.lat, toDo.lng, toDo.description, toDo.id)
-    })  
+      addMarker(toDo.lat, toDo.lng, toDo.description, toDo.id);
+    });
 }
 
 function fitMapToMarkers() {
-  map.fitBounds(map.latlngbounds)
-  if(map.zoom > 12){
-    map.setZoom(12)
+  map.fitBounds(map.latlngbounds);
+  if ( map.zoom > 12 ){
+    map.setZoom(12);
   };
-  map.setCenter(map.latlngbounds.getCenter())   
+  map.setCenter(map.latlngbounds.getCenter())   ;
 };
 
 function clearMarkers() {
@@ -99,11 +99,11 @@ function showToDosInBounds() {
     })[0];
 
     $foundItem.addClass("undisplayed");
-    if( !marker ) { return }
+    if ( !marker ) { return }
 
     var inBounds = map.getBounds().contains(marker.getPosition())
     
-    if(inBounds){
+    if ( inBounds ){
       $foundItem.removeClass("undisplayed");
     }
   });

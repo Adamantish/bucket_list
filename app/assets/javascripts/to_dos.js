@@ -1,20 +1,20 @@
 
 
-window.toDos = {}
+window.toDos = {};
 
 var ToDo = function(id, selector){
   this.id = id;
   this.$el = $(selector);
   this.displayHeight = this.$el.height();
-  this.editHeight = "20.7rem"
-  this.deleteHeight = "5.2rem"
+  this.editHeight = "20.7rem";
+  this.deleteHeight = "5.2rem";
   this.html = $(selector).html();
   window.toDos[id] = this;
 }
 
 ToDo.prototype.transitionContent = function( newHTMLContent , setHeight ) {
-  _this = this
-  if( !setHeight ) { setHeight = this.displayHeight };
+  _this = this;
+  if ( !setHeight ) { setHeight = this.displayHeight };
   this.displayHeight = this.$el.height();
   this.$el.animate( {   height: setHeight 
                       , queue: false 
@@ -35,7 +35,8 @@ ToDo.prototype.cancelEdit = function() {
 };
 
 ToDo.prototype.insertUpdatedToDo = function(newHTML) {
-  this.$el.html(newHTML)
+  
+  this.transitionContent( newHTML );
 };
 
 ToDo.prototype.deleteMe = function() {
@@ -51,9 +52,9 @@ ToDo.prototype.deleteMe = function() {
 // ----------------------------------------------------
 
 var deleteToDoConfirm = function(id) {
-  var storedToDo = new ToDo(id, "div[data_id=" + id + "]")
-  deleteConfirmHTML = "<p>Are you sure you want to delete?</p><button onclick='toDos[" + id + "].cancelEdit()'>Cancel</button><button onclick='toDos[" + id + "].deleteMe()'>Yes</button>"
-  storedToDo.transitionContent( deleteConfirmHTML, storedToDo.deleteHeight)
+  var storedToDo = new ToDo(id, "div[data_id=" + id + "]");
+  deleteConfirmHTML = "<p>Are you sure you want to delete?</p><button onclick='toDos[" + id + "].cancelEdit()'>Cancel</button><button onclick='toDos[" + id + "].deleteMe()'>Yes</button>";
+  storedToDo.transitionContent( deleteConfirmHTML, storedToDo.deleteHeight);
 };
 
 $(document).ready(function() {
@@ -63,8 +64,8 @@ $(document).ready(function() {
   //   $('#new_to_do').css("opacity", "0")
 
   // });
-   $('#select--sort-to_dos').on("change", function(e){
-    sortElements("#to_dos", $(e.target).val())
+  $('#select--sort-to_dos').on("change", function(e){
+    sortElements("#to_dos", $(e.target).val());
   });
 
    toggleNewToDo();
@@ -76,8 +77,8 @@ function sortElements(selector, sort_by) {
   var $kids = $(selector).children()
 
   $kids.sort( function(a,b) {
-    var aComparator = a.getAttribute(sort_by)
-    var bComparator = b.getAttribute(sort_by)
+    var aComparator = a.getAttribute(sort_by);
+    var bComparator = b.getAttribute(sort_by);
 
     if (aComparator < bComparator) { 
       return -1
@@ -86,20 +87,20 @@ function sortElements(selector, sort_by) {
     }
   });
 
-  $kids.detach().appendTo(el)
+  $kids.detach().appendTo(el);
 
 };
 
 function cancelToDoEdit(toDoID) {
   if(toDoID){
-    return toDos[toDoID].cancelEdit()
+    return toDos[toDoID].cancelEdit();
   } else {
-   toggleNewToDo()
-  };
+   toggleNewToDo();
+  }
 };
 
 function toggleNewToDo() {
-  $('#add__to_do').children().toggleClass("undisplayed")
+  $('#add__to_do').children().toggleClass("undisplayed");
 };
 
 

@@ -36,14 +36,12 @@ function makeSearch(e){
 
 renderSearchResults = function(results) {
 
-  // debugger;s
-
-  var searchResultListTempl = _.template("<h3><%= resultsNum == 0 ? 'No' : resultsNum %> Results</h3> <ul class='results'></ul>")
-  var searchResultTempl = _.template("<li> <%= description %> in <%= destination %></li>")
+  var searchResultListTempl = _.template("<h3><%= resultsNum == 0 ? 'No' : resultsNum %> Results</h3> <ul class='results'></ul>");
+  var searchResultTempl = _.template("<li> <%= description %> in <%= destination %></li>");
   var $resultList = $('#search-results');
 
   $resultList.html(searchResultListTempl({ resultsNum: results.length }));
-  var $ulResults = $resultList.find('.results')
+  var $ulResults = $resultList.find('.results');
   
   var ids = {};
 
@@ -53,10 +51,9 @@ renderSearchResults = function(results) {
     // $ulResults.append(liResult)
   });
 
-  // debugger;
 
   // Filter displayed map markers
-  showOnlyMarkers(ids)
+  showOnlyMarkers(ids);
 
   $('#container--search-results').removeClass('undisplayed')
 
