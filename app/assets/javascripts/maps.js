@@ -1,15 +1,21 @@
 "use strict";
 
 function initMap() {
+  var $searchInput = $('#search')
+  
+  $searchInput.blur( function() {
+    $('#container--search-results').addClass('undisplayed');
+  });
 
-  $('#search').keypress( function(e){ 
+  $searchInput.keypress( function(e){ 
       if( e.keyCode == 13 ) {
         e.preventDefault();
-        $('#container--search-results').addClass('undisplayed');
         $('#search').blur();
       }
     } 
-   );
+  );
+
+
 
   window.markers = [];
   window.map = new google.maps.Map($('#map-canvas')[0], {} );

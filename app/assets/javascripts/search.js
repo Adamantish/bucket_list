@@ -47,8 +47,8 @@ renderSearchResults = function(results) {
 
   _(results).each(function(result){
     ids[result.id] = "Nowt"
-    // var liResult = searchResultTempl({description: result.description, destination: result.destination_name})
-    // $ulResults.append(liResult)
+    var liResult = searchResultTempl({description: result.description, destination: result.destination_name})
+    $ulResults.append(liResult)
   });
 
   // Filter displayed map markers

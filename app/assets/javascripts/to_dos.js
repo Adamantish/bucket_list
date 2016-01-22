@@ -36,7 +36,6 @@ ToDo.prototype.cancelEdit = function() {
 };
 
 ToDo.prototype.insertUpdatedToDo = function(newHTML) {
-
   this.transitionContent( newHTML );
 };
 
@@ -46,7 +45,9 @@ ToDo.prototype.deleteMe = function() {
     url: "/to_dos/" + this.id ,
     type: "DELETE"
     ,
-  success: function() {thisToDo.$el.remove()}
+  success: function() { 
+    thisToDo.$el.remove();
+    }
   })
 };
 
