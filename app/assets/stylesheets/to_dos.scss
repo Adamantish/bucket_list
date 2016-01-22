@@ -6,8 +6,8 @@ $tiny_icon_size: 18px;
 $left_nav_width: 31.5rem;
 
 header.devise-header > p {
-    margin: 0 0 0.1em 0;
-      position: fixed;
+  margin: 0 0 0.1em 0;
+  position: fixed;
   z-index: 1;
   top: 3.3em;
   padding: 0.5em;
@@ -18,6 +18,31 @@ header.devise-header > p {
 
 }
 
+.sprite {
+
+  background: url(/assets/sprite.png);
+
+  &--tiny {
+    @extend .sprite ;
+    width: $tiny_icon_size;
+    height: $tiny_icon_size;
+
+    &__close {
+      @extend .sprite--tiny;
+      background-position: calc(23 * -#{$tiny_icon_size}) -108px;
+    }
+
+    &__trash {
+      @extend .sprite--tiny ;
+      background-position: calc(25 * -#{$tiny_icon_size}) -108px;
+    }
+
+    &__like {
+      @extend .sprite--tiny ;
+      background-position: calc(9 * -#{$tiny_icon_size}) -108px;
+    }
+  }
+}
 
 .alert {
   background-color:rgba(224, 158, 188, 0.84);
@@ -116,6 +141,10 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
 
 }
 
+#bucket fieldset select {
+    width: 25rem;
+}
+
 .nav__left {
   width: $left_nav_width;
   display: inline;
@@ -208,32 +237,6 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
   display: inline-block;
   /*cursor: pointer;*/
 
-}
-
-.sprite {
-
-  background: url(/assets/sprite.png);
-
-  &--tiny {
-    @extend .sprite ;
-    width: $tiny_icon_size;
-    height: $tiny_icon_size;
-
-    &__close {
-      @extend .sprite--tiny;
-      background-position: calc(23 * -#{$tiny_icon_size}) -108px;
-    }
-
-    &__trash {
-      @extend .sprite--tiny ;
-      background-position: calc(25 * -#{$tiny_icon_size}) -108px;
-    }
-
-    &__like {
-      @extend .sprite--tiny ;
-      background-position: calc(9 * -#{$tiny_icon_size}) -108px;
-    }
-  }
 }
 
 .container__to_do_actions {
