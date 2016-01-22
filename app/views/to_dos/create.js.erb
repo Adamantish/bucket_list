@@ -1,9 +1,7 @@
 
-addMarker(<%= "#{@new_to_do.lat}, #{@new_to_do.lng}" %>, "<%= @new_to_do.description %>", "<%= @new_to_do.id %>" )
-var itemHTML = "<%= escape_javascript(render partial: @new_to_do, locals: {t: @new_to_do}) %>"
+addMarker(<%= "#{@new_to_do.lat}, #{@new_to_do.lng}" %>, "<%= @new_to_do.description %>", "<%= @new_to_do.id %>" );
+var itemHTML = "<%= escape_javascript(render partial: @new_to_do, locals: {t: @new_to_do}) %>";
 
-$('#to_dos').prepend(itemHTML)
+$('#to_dos').prepend(itemHTML);
 
-$('.notice').text("Plink! In it goes")
-
-// $('#map-canvas').attr("data", to_dos: @to_do_json})
+$('.notice').text("Plink! In it goes").show().fadeOut({ duration: 4000 });

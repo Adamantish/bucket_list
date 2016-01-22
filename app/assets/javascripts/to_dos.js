@@ -30,12 +30,13 @@ ToDo.prototype.transitionContent = function( newHTMLContent , setHeight ) {
   );
 };
 
+
 ToDo.prototype.cancelEdit = function() {
   this.transitionContent( this.html );
 };
 
 ToDo.prototype.insertUpdatedToDo = function(newHTML) {
-  
+
   this.transitionContent( newHTML );
 };
 

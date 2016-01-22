@@ -1,3 +1,2 @@
 - @to_dos.each do |t|
-	.to_do.shadow-box{data: "#{t.description}" , data_id: "#{t.id}"}
-		= render partial: 'to_dos/to_do', locals: {t: t}
+	= render partial: 'to_dos/to_do', locals: {t: t}

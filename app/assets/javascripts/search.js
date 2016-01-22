@@ -29,7 +29,7 @@ function makeSearch(e){
       },
       // And when it the data comes back we'll take advantage of the fact that actually we have everything needed.
       // If I were to do an infinite scroll kind of partial load I'd have this identify any toDos not already in the DOM and append them
-      success: function(results) {renderSearchResults(results)}
+      success: function(results) { renderSearchResults( results ) }
     });
   };
 };
@@ -50,7 +50,6 @@ renderSearchResults = function(results) {
     // var liResult = searchResultTempl({description: result.description, destination: result.destination_name})
     // $ulResults.append(liResult)
   });
-
 
   // Filter displayed map markers
   showOnlyMarkers(ids);
