@@ -1,39 +1,48 @@
 "use strict";
 
 function initMap() {
-  var $searchInput = $('#search')
-  
-  $searchInput.blur( function() {
-    $('#container--search-results').addClass('undisplayed');
-  });
-
-  $searchInput.keypress( function(e){ 
-      if( e.keyCode == 13 ) {
-        e.preventDefault();
-        $('#search').blur();
-      }
-    } 
-  );
-
 
 
   window.markers = [];
   window.map = new google.maps.Map($('#map-canvas')[0], {} );
-
-  map.addListener("idle", showToDosInBounds);
-
   window.map.toDos = $('#map-canvas').data('toDos');
   window.map.latlngbounds = new google.maps.LatLngBounds();
 
-  if ( window.map.toDos.length > 0 ) {
-    resetMarkers();
-  }
+  if ( window.map.toDos.length > 0 ) { resetMarkers() }
+    
+  initEventListeners();
+
+};
+
+function initEventListeners() {
+
+  map.addListener("idle", showToDosInBounds);
+
+  var $searchInput = $('#search')
+  $searchInput.blur( function() {
+    $('#container--search-results').addClass('undisplayed');
+  });
+
+  $searchInput.keyup( function(e){ 
+      if( e.keyCode == 13 ) {
+        e.preventDefault();
+        $('#search').blur();
+      } else {
+        return makeSearch(e);
+      };
+    } 
+  );
 
   $('#destination__search-opts').on("change", function() {
     var dest_id = $("#destination__search-opts").val();
     showOnlyMarkersFor(dest_id);
   });
- };
+
+  $('#select--sort-to_dos').on("change", function(e){
+    sortElements("#to_dos", $(e.target).val());
+  });
+  
+};
 
 function resetMarkers(){
     clearMarkers();

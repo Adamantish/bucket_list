@@ -17,7 +17,7 @@ some_countries << "Taiwan (Republic of China),Tajikistan,Tanzania,Thailand,Tibet
 
 some_countries = some_countries.split(",")
 
-# If I ever had to do something like this somewhere it affected load time for users I'd put a lot of validation rules into the DB and try to get away with a direct INSERT.
+# If I ever had to do an insert this big somewhere it affected load time for users I'd put a lot of validation rules into the DB and try to get away with a direct INSERT.
 
 ActiveRecord::Base.transaction do
   Destination.destroy_all

@@ -2,7 +2,7 @@
 
 window.toDos = {};
 
-var ToDo = function(id, selector){
+var ToDo = function( id, selector ){
   this.id = id;
   this.$el = $(selector);
   this.displayHeight = this.$el.height();
@@ -61,11 +61,6 @@ var deleteToDoConfirm = function(id) {
 
 $(document).ready(function() {
 
-  // var $butt = $('#btn__add-to_do')
-  // $butt.click(function(e) {
-  //   $('#new_to_do').css("opacity", "0")
-
-  // });
   $('#select--sort-to_dos').on("change", function(e){
     sortElements("#to_dos", $(e.target).val());
   });

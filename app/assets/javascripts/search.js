@@ -3,11 +3,6 @@ $(document).ready( function() {
   $('#btn--search').addClass('undisplayed');
   $('#container--search-results').addClass('undisplayed');
   
-  $('#search').keyup( function(e){  
-    if ( e.keyCode != 13 ) {
-      return makeSearch(e);
-    }
-  });
 });
 
 // TODO: Refactor to remove this and instead use the existing _search partial for dryness.
@@ -28,7 +23,7 @@ function makeSearch(e){
         search: searchTerm
       },
       // And when it the data comes back we'll take advantage of the fact that actually we have everything needed.
-      // If I were to do an infinite scroll kind of partial load I'd have this identify any toDos not already in the DOM and append them
+      // If this were to become an infinite scroll kind of partial load this would change to identify any toDos not already in the DOM and append them
       success: function(results) { renderSearchResults( results ) }
     });
   };
