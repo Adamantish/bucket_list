@@ -1,6 +1,6 @@
 ##Bucket List Travel Map
 
-### [Try it](http://http://bucketlist77.herokuapp.com/)
+### [Try it](https://bucketlist77.herokuapp.com/)
 A single page Rails and AJAX app making use of Flickr, google maps and geocoding APIs
 Makes use of OO javascript to re-invent part of a frontend framework, RESTful JSON, SCSS, HAML and sprites.
 
