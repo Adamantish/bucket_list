@@ -7,7 +7,6 @@
 # In this case I thought I'd see how easily I could scrape the wikipedia list of countries with jQuery. 
 # Answer not easily enough to repeat the approach, particularly as the table was partitioned into sections by the repetition of column headings.
 # 
-require 'pry'
 
 some_countries = "Afghanistan,Albania,Algeria,American Samoa,Andorra,Angola,Anguilla,Antarctica,Antigua and Barbuda,Argentina,Armenia,Aruba,Australia,Austria,Azerbaijan,Bahamas,Bahrain,Bangladesh,Barbados,Belarus,Belgium,Belize,Benin,Bermuda,Bhutan,Bolivia,Bosnia and Herzegovina,Botswana,Brazil,Brunei Darussalam,Bulgaria,Burkina Faso,Burundi,Cambodia,Cameroon,Canada,Cape Verde,Cayman Islands,Central African Republic,Chad,Chile,China,Christmas Island,Cocos (Keeling) Islands,Colombia,Comoros,Democratic Republic of the Congo (Kinshasa),Congo, Republic of (Brazzaville),Cook Islands,Costa Rica,Ivory Coast,Croatia,Cuba,Cyprus,Czech Republic,"
 some_countries << "Denmark,Djibouti,Dominica,Dominican Republic,East Timor (Timor-Leste),Ecuador,Egypt,El Salvador,Equatorial Guinea,Eritrea,Estonia,Ethiopia,Falkland Islands,Faroe Islands,Fiji,Finland,France,French Guiana,French Polynesia,French Southern Territories,Gabon,Gambia,Georgia,Germany,Ghana,Gibraltar,Great Britain,Greece,Greenland,Grenada,Guadeloupe,Guam,Guatemala,Guinea,Guinea-Bissau,Guyana,"
