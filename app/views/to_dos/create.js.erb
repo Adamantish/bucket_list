@@ -3,7 +3,6 @@ addMarker(<%= "#{@new_to_do.lat}, #{@new_to_do.lng}" %>, "<%= @new_to_do.descrip
 var itemHTML = "<%= escape_javascript(render partial: @new_to_do, locals: {t: @new_to_do}) %>";
 
 $('#to_dos').prepend(itemHTML);
-debugger;
-// window.map.toDos.push( { id: <%= @new_to_do.id %>", "<%= @new_to_do.description %> })
+window.map.toDos.push( JSON.parse('<%= to_dos_json( @new_to_do ).html_safe %>') )
 
 $('.notice').text("Plink! In it goes").show().fadeOut({ duration: 4000 });

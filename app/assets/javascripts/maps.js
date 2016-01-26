@@ -34,7 +34,7 @@ function initEventListeners() {
 
   $('#destination__search-opts').on("change", function() {
     var dest_id = $("#destination__search-opts").val();
-    showOnlyMarkersFor(dest_id);
+    showOnlyMarkersFor("destination_id", dest_id);
   });
 
   $('#select--sort-to_dos').on("change", function(e){
@@ -59,6 +59,7 @@ function addMarker(lat, lng, title, id) {
     title: title,
     id: id,
     map: window.map
+
   });
 
   markers.push(marker);
@@ -79,9 +80,9 @@ function addMarkers(newToDos) {
 function fitMapToMarkers() {
 
   map.fitBounds(map.latlngbounds);
-  if ( map.zoom > 12 ){
-    map.setZoom(12);
-  };
+
+  if ( map.zoom > 12 ){ map.setZoom(12); }
+
   map.setCenter(map.latlngbounds.getCenter())   ;
 
 };
@@ -96,27 +97,44 @@ function clearMarkers() {
 
 };
 
-function showOnlyMarkers(ids){
+function showOnlyMarkersFor(criteriaType, criteria){
 
   clearMarkers();
+
   var filteredToDos = map.toDos.filter(function(toDo) {
-    return ids[toDo.id]
+    if ( criteriaType == "destination_id" ) {
+      return toDo.destination_id == criteria;
+    } else if ( criteriaType == "toDo_ids") {
+      return criteria[toDo.id]
+    };
   });
+
   addMarkers(filteredToDos);
   showToDosInBounds();
 
-};
+}
 
-function showOnlyMarkersFor(destination_id) {
+// function showOnlyMarkers(ids){
 
-  clearMarkers();
-  var filteredToDos = map.toDos.filter(function(toDo) { 
-    return toDo.destination_id == destination_id;
-  });
-  addMarkers(filteredToDos);
-  showToDosInBounds();
+//   clearMarkers();
+//   var filteredToDos = map.toDos.filter(function(toDo) {
+//     return ids[toDo.id]
+//   });
+//   addMarkers(filteredToDos);
+//   showToDosInBounds();
 
-};
+// };
+
+// function showOnlyMarkersFor(destination_id) {
+
+//   clearMarkers();
+//   var filteredToDos = map.toDos.filter(function(toDo) { 
+//     return toDo.destination_id == destination_id;
+//   });
+//   addMarkers(filteredToDos);
+//   showToDosInBounds();
+
+// };
 
 function showToDosInBounds() {
 
@@ -127,6 +145,7 @@ function showToDosInBounds() {
     })[0];
 
     $foundItem.addClass("undisplayed");
+
     if ( !marker ) { return }
 
     var inBounds = map.getBounds().contains(marker.getPosition())

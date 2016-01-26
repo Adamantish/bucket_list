@@ -26,7 +26,7 @@ function makeSearch(e){
       success: function(results) { renderSearchResults( results ) }
     });
   };
-  
+
 };
 
 renderSearchResults = function(results) {
@@ -47,7 +47,7 @@ renderSearchResults = function(results) {
   });
 
   // Filter displayed map markers
-  showOnlyMarkers(ids);
+  showOnlyMarkersFor("toDo_ids", ids);
 
   $('#container--search-results').removeClass('undisplayed')
 

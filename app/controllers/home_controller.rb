@@ -15,7 +15,7 @@ class HomeController < ApplicationController
     @destinations = Destination.all
     @destination_options = get_select_options(@destinations)
     @to_dos = ToDo.all.includes(:likes, :destination)
-    @to_dos_json = @to_dos.to_json(except: %i(id, created_at, updated_at))
+    @to_dos_json = to_dos_json( @to_dos )
  
   end
 
