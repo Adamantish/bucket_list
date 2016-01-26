@@ -6,6 +6,7 @@ $tiny_icon_size: 18px;
 $left_nav_width: 31.5rem;
 
 header.devise-header > p {
+
   margin: 0 0 0.1em 0;
   position: fixed;
   z-index: 1;
@@ -129,7 +130,7 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
   background-color: white;
   box-shadow: 0.2em 0.5em 1.2em grey;
   padding: 1.3em;
-  padding-bottom: 2.5rem;
+  padding-bottom: 1.8rem;
   margin-bottom: 2em;
 }
 
@@ -170,21 +171,22 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
 
 
 #add__to_do {
+
   position: relative;
   top: -3px;
+
 }
 
 #btn__new_to_do {
-  
 
   position: relative;
-  left: 8rem;
+  left: 7.5rem;
   font-size: 1.3rem;
   color: white;
-  background-color: #A3BFE8;
-  width: 2.5rem;
-  height: 2rem;
-  padding: 0 0rem 0.3rem 0;
+  background-color: #A4AEDF;
+  width: 11.5rem;
+  height: 2.5rem;
+  padding: 0rem 0rem 0.1rem 0;
 
   &--label {
     position: relative;
