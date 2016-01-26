@@ -3,6 +3,7 @@
 window.toDos = {};
 
 var ToDo = function( id, selector ){
+
   this.id = id;
   this.$el = $(selector);
   this.displayHeight = this.$el.height();
@@ -10,9 +11,11 @@ var ToDo = function( id, selector ){
   this.deleteHeight = "5.2rem";
   this.html = $(selector).html();
   window.toDos[id] = this;
+
 }
 
 ToDo.prototype.transitionContent = function( newHTMLContent , setHeight ) {
+
   _this = this;
   if ( !setHeight ) { setHeight = this.displayHeight };
   this.displayHeight = this.$el.height();
@@ -28,18 +31,24 @@ ToDo.prototype.transitionContent = function( newHTMLContent , setHeight ) {
       }
     }
   );
+
 };
 
 
 ToDo.prototype.cancelEdit = function() {
+
   this.transitionContent( this.html );
+
 };
 
 ToDo.prototype.insertUpdatedToDo = function(newHTML) {
+
   this.transitionContent( newHTML );
+
 };
 
 ToDo.prototype.deleteMe = function() {
+
   var thisToDo = this
   $.ajax({
     url: "/to_dos/" + this.id ,
@@ -48,28 +57,28 @@ ToDo.prototype.deleteMe = function() {
   success: function() { 
     thisToDo.$el.remove();
     }
-  })
+  });
+
 };
 
 // ----------------------------------------------------
 
 var deleteToDoConfirm = function(id) {
+  
   var storedToDo = new ToDo(id, "div[data_id=" + id + "]");
   deleteConfirmHTML = "<p>Are you sure you want to delete?</p><button onclick='toDos[" + id + "].cancelEdit()'>Cancel</button><button onclick='toDos[" + id + "].deleteMe()'>Yes</button>";
   storedToDo.transitionContent( deleteConfirmHTML, storedToDo.deleteHeight);
+  
 };
 
 $(document).ready(function() {
-
-  $('#select--sort-to_dos').on("change", function(e){
-    sortElements("#to_dos", $(e.target).val());
-  });
 
    toggleNewToDo();
 
 });
 
 function sortElements(selector, sort_by) {
+  
   var el = $(selector)
   var $kids = $(selector).children()
 
@@ -89,15 +98,19 @@ function sortElements(selector, sort_by) {
 };
 
 function cancelToDoEdit(toDoID) {
+  
   if(toDoID){
     return toDos[toDoID].cancelEdit();
   } else {
    toggleNewToDo();
   }
+  
 };
 
 function toggleNewToDo() {
+  
   $('#add__to_do').children().toggleClass("undisplayed");
+  
 };
 
 

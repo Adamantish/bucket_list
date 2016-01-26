@@ -41,6 +41,9 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 end
 
+
+# Proper default production settings. Needs troubleshoting for asset compilation.
+
 # Rails.application.configure do
 #   # Settings specified here will take precedence over those in config/application.rb.
 

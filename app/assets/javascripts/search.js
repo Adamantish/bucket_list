@@ -5,7 +5,6 @@ $(document).ready( function() {
   
 });
 
-// TODO: Refactor to remove this and instead use the existing _search partial for dryness.
 function makeSearch(e){
 
   var searchTerm =  $(e.currentTarget).val();
@@ -27,6 +26,7 @@ function makeSearch(e){
       success: function(results) { renderSearchResults( results ) }
     });
   };
+  
 };
 
 renderSearchResults = function(results) {
