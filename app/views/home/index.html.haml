@@ -1,7 +1,7 @@
 %nav
   .heading The Bucket List
   .search
-    = form_tag search_to_dos_path, method: "GET"  do
+    = form_tag search_to_dos_path, method: "GET" , remote: true do
       %fieldset#fieldset__search
         = text_field_tag :search , "" , placeholder: "Search pebbles"
         %input#btn--search{type: "submit"}

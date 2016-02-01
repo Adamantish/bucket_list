@@ -24,7 +24,6 @@ function initEventListeners() {
 
   $searchInput.keyup( function(e){ 
       if( e.keyCode == 13 ) {
-        debugger;
         e.preventDefault();
         $('#search').blur();
         return false;
