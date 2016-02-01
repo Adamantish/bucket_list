@@ -12,15 +12,16 @@ var ToDo = function( id, selector ){
   this.html = $(selector).html();
   window.toDos[id] = this;
 
-}
+};
 
 ToDo.prototype.transitionContent = function( newHTMLContent , setHeight ) {
 
   _this = this;
   if ( !setHeight ) { setHeight = this.displayHeight };
   this.displayHeight = this.$el.height();
-  this.$el.animate( {   height: setHeight 
-                      , queue: false 
+  this.$el.animate( {   
+                      height: setHeight 
+                     ,queue: false 
                     }
                     , function() { _this.$el.css( { height: "auto" }) }
                   )
@@ -41,7 +42,7 @@ ToDo.prototype.cancelEdit = function() {
 
 };
 
-ToDo.prototype.insertUpdatedToDo = function(newHTML) {
+ToDo.prototype.insertUpdatedToDo = function( newHTML ) {
 
   this.transitionContent( newHTML );
 

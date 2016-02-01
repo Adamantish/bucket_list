@@ -111,6 +111,11 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
   box-shadow: 0.2em 0.2em 1.5em grey;
 }*/
 
+#to_dos {
+  position: relative;
+  z-index: -1;  
+}
+
 #select--sort-to_dos {
   font-size: 1.3rem;
   margin-right: 1rem; 
