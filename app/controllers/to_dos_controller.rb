@@ -8,7 +8,6 @@ class ToDosController < ApplicationController
     @new_to_do = ToDo.where("id > ?", params["latest_id"].to_i ).first if params["latest_id"]
     @edited_to_do = ToDo.where("updated_at > ?",Time.at(params["latest_update"].to_i + 1 )).first if params["latest_update"]
 
-    # binding.pry
     if @new_to_do
       render "create.js.erb"
     elsif @edited_to_do
@@ -65,7 +64,9 @@ class ToDosController < ApplicationController
 
   def search
     
-    @search_results = ToDo.includes(:destination).joins(:destination).where("description ILIKE ?", "%#{params[:search]}%")
+    # binding.pry
+    base_query = ToDo.includes(:destination).joins(:destination)
+    @search_results = base_query.where("description || address || name ILIKE ?", "%#{params[:search]}%")
 
     @results_a = []
     @search_results.each do |obj|
