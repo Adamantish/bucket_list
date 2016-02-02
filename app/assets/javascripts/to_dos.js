@@ -140,3 +140,13 @@ function getUnsyncedToDos() {
   });
 
 };
+
+function runSyncPolling( bool ) {
+
+  if ( bool ) {
+    window.checkSyncInterval = setInterval( getUnsyncedToDos , POLL_INTERVAL )
+  } else {
+    clearInterval( window.checkSyncInterval )
+  };
+  
+}

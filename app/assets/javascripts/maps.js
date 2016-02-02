@@ -2,6 +2,7 @@
 
 function initMap() {
 
+  window.POLL_INTERVAL = 2000
   window.markers = [];
   window.map = new google.maps.Map($('#map-canvas')[0], {} );
   window.map.toDos = $('#map-canvas').data('toDos');
@@ -41,14 +42,16 @@ function initEventListeners() {
     sortElements("#to_dos", $(e.target).val());
   });
 
+  window.onfocus = function() { runSyncPolling( true ) };
+  window.onblur = function() { runSyncPolling(  false ) };
+
 };
 
 function initProcesses(){
 
   getLatestToDoTimestamps();
 
-  window.checkSyncInterval = setInterval( getUnsyncedToDos , 1500 )
-
+  runSyncPolling( true );
 };
 
 function resetMarkers(){
