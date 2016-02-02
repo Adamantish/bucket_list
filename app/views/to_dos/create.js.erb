@@ -10,4 +10,6 @@ heightOffset = "-" + heightOffset + "px"
 $('#to_dos').css("top", heightOffset).animate({ top: "0rem" }, { duration: 500 });
 window.map.toDos.push( JSON.parse('<%= to_dos_json( @new_to_do ).html_safe %>') )
 
+debugger;
+window.toDoLatestTimestamps.latest_update = <%= @new_to_do.updated_at.to_i %>
 $('.notice').text("Plink! In it goes").show().fadeOut({ duration: 4000 });
