@@ -118,14 +118,9 @@ function getLatestToDoTimestamps(){
 
   $.ajax( {
     url: '/to_dos/latest_timestamps',
-    success: function(result) { storeToDoLatestTimestamps( result ) }
+    success: function(result) { window.toDoLatestTimestamps = result.timestamps }
   });
 
-};
-
-function storeToDoLatestTimestamps( result ){
-
-  window.toDoLatestTimestamps = result.timestamps
 };
 
 
@@ -148,5 +143,5 @@ function runSyncPolling( bool ) {
   } else {
     clearInterval( window.checkSyncInterval )
   };
-  
+
 }

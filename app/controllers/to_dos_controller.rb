@@ -5,22 +5,23 @@ class ToDosController < ApplicationController
   def unsynced_changes
     # If this were a heavily concurrent app I'd test for all types of change and concatenate rendered JS for all affected types. In this low traffic setting it's overkill.
     
-    if params["latest_update"]
-      @new_to_do = ToDo.where("created_at > ?", Time.at(params["latest_update"].to_i + 1)).first
-    end
+    @new_to_do = ToDo.where("id > ?", params["latest_id"].to_i ).first if params["latest_id"]
+    @edited_to_do = ToDo.where("updated_at > ?",Time.at(params["latest_update"].to_i + 1 )).first if params["latest_update"]
 
-
+    # binding.pry
     if @new_to_do
       render "create.js.erb"
+    elsif @edited_to_do
+      render partial: 'edited'
     else
       render text: ""
     end
-    # @new_to_do_json = [@new_to_do].to_json(except: %i(created_at, updated_at))
-    # @to_dos = []; @to_dos << @new_to_do
+
   end
 
   def latest_timestamps
-    output = { latest_update: ToDo.maximum(:updated_at).to_i }
+    output = { latest_update: ToDo.maximum(:updated_at).to_i ,
+               latest_id:     ToDo.maximum(:id) }
     render json: { timestamps: output }
   end
 
