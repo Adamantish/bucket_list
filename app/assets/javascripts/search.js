@@ -39,7 +39,7 @@ renderSearchResults = function(results) {
   var $ulResults = $resultList.find('.results');
   
   var ids = {};
-
+    
   _(results).each(function(result){
     ids[result.id] = "Nowt"
     var liResult = searchResultTempl({description: result.description, destination: result.destination_name})

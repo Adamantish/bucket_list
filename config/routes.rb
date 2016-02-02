@@ -21,7 +21,9 @@ Rails.application.routes.draw do
         delete 'delete_like'
       end
 
-      collection do 
+      collection do
+        get 'unsynced_changes'
+        get 'latest_timestamps'
         get 'search'
       end
 

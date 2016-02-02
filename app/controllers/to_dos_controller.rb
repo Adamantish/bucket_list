@@ -2,6 +2,28 @@ class ToDosController < ApplicationController
 
   include ApplicationHelper
 
+  def unsynced_changes
+    # If this were a heavily concurrent app I'd test for all types of change and concatenate rendered JS for all affected types. In this low traffic setting it's overkill.
+    
+    if params["latest_update"]
+      @new_to_do = ToDo.where("created_at > ?", Time.at(params["latest_update"].to_i + 1)).first
+    end
+
+
+    if @new_to_do
+      render "create.js.erb"
+    else
+      render text: ""
+    end
+    # @new_to_do_json = [@new_to_do].to_json(except: %i(created_at, updated_at))
+    # @to_dos = []; @to_dos << @new_to_do
+  end
+
+  def latest_timestamps
+    output = { latest_update: ToDo.maximum(:updated_at).to_i }
+    render json: { timestamps: output }
+  end
+
   def create
     @new_to_do = ToDo.create(sane_params)
     @new_to_do_json = [@new_to_do].to_json(except: %i(created_at, updated_at))
@@ -37,12 +59,12 @@ class ToDosController < ApplicationController
   end
 
   def delete_like
-
+    # TODO
   end
 
   def search
-    # This parameter needs sanitising with a gem like Sequel .
-    @search_results = ToDo.includes(:destination).joins(:destination).where("description LIKE ?", "%#{params[:search]}%")
+    
+    @search_results = ToDo.includes(:destination).joins(:destination).where("description ILIKE ?", "%#{params[:search]}%")
 
     @results_a = []
     @search_results.each do |obj|
@@ -57,9 +79,6 @@ class ToDosController < ApplicationController
       format.json {render json: @results_a}
       format.html do
 
-        #This is copy paste of the index controller. 
-        #Have yet to figure out how to DRY up and redirect to it with a payload of search results.
-        #A bit of technical debt here.
           @edit_or_new_to_do = ToDo.new()
           @destinations = Destination.all
           @destination_options = get_select_options(@destinations)

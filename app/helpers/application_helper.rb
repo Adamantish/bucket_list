@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def to_dos_json(to_dos)
-    @to_dos_json = to_dos.to_json(except: %i(id, created_at, updated_at))
+    @to_dos_json = to_dos.to_json(except: %i(updated_datetime))
   end
 
 end

@@ -8,7 +8,8 @@ function initMap() {
   window.map.latlngbounds = new google.maps.LatLngBounds();
 
   if ( window.map.toDos.length > 0 ) { resetMarkers() }
-    
+  
+  initProcesses();
   initEventListeners();
 
 };
@@ -24,9 +25,7 @@ function initEventListeners() {
 
   $searchInput.keyup( function(e){ 
       if( e.keyCode == 13 ) {
-        e.preventDefault();
         $('#search').blur();
-        return false;
       } else {
         return makeSearch(e);
       };
@@ -41,6 +40,14 @@ function initEventListeners() {
   $('#select--sort-to_dos').on("change", function(e){
     sortElements("#to_dos", $(e.target).val());
   });
+
+};
+
+function initProcesses(){
+
+  getLatestToDoTimestamps();
+
+  window.checkSyncInterval = setInterval( getUnsyncedToDos , 1500 )
 
 };
 
