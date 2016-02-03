@@ -9,12 +9,10 @@ body {
   transition: opacity 5s;
 }
 
-p {
-  font-size: 0.8em;
-}
 
 #greetings > * {
-  margin: 0.2em;  
+  margin: 0.2em;
+  margin-bottom: 0.3em;
 }
 
 .center-align {
@@ -26,7 +24,7 @@ p {
 #greetings {
 
   border: solid white 1px;
-  width: 35%;
+  width: 29%;
   margin-left: auto;
   margin-right:auto;
   color: white;
