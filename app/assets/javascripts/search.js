@@ -1,9 +1,4 @@
-$(document).ready( function() {
 
-  $('#btn--search').addClass('undisplayed');
-  $('#container--search-results').addClass('undisplayed');
-  
-});
 
 function makeSearch(e){
 

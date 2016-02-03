@@ -172,6 +172,7 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
 }
 
 .nav__left {
+  top: 3em;
   z-index: 0;
   width: $left_nav_width;
   display: inline;
