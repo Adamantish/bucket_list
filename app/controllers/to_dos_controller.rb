@@ -3,7 +3,13 @@ class ToDosController < ApplicationController
   include ApplicationHelper
 
   def unsynced_changes
-    # If this were a heavily concurrent app I'd test for all types of change and concatenate rendered JS for all affected types. In this low traffic setting it's overkill.
+    # If this were a heavily concurrent app I'd test for all types of change and concatenate rendered JS 
+    # for all affected types. In this low traffic setting it's overkill.
+
+    # This implementation will only action one change that's been made since last check. While the page has focus
+    # and checks are every 2 seconds this should be fine in low traffic. 
+
+    # To make this work more robustly I'd refactor to return JSON rather than JS.
     
     @new_to_do = ToDo.where("id > ?", params["latest_id"].to_i ).first if params["latest_id"]
     @edited_to_do = ToDo.where("updated_at > ?",Time.at(params["latest_update"].to_i + 1 )).first if params["latest_update"]
@@ -64,7 +70,6 @@ class ToDosController < ApplicationController
 
   def search
     
-    # binding.pry
     base_query = ToDo.includes(:destination).joins(:destination)
     @search_results = base_query.where("description || address || name ILIKE ?", "%#{params[:search]}%")
 
@@ -88,7 +93,6 @@ class ToDosController < ApplicationController
           @to_dos_json = @to_dos.to_json(except: %i(id, created_at, updated_at))
           
           render 'home/index'
-        # For search results
             
       end
     end

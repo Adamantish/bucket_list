@@ -9,7 +9,7 @@
     Location: #{t.address}
 
   .container--like
-    = link_to "<div class='icon sprite--tiny__like'></div>".html_safe  , create_like_to_do_path(t), { method: "POST", remote: true }
+    = link_to "<div class='icon sprite--tiny__like'></div>".html_safe, create_like_to_do_path(t), { method: "POST", remote: true }
     .num_of_likes
       = t.likes.length == 0 ? "" : t.likes.length
 

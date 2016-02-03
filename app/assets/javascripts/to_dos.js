@@ -123,7 +123,6 @@ function getLatestToDoTimestamps(){
 
 };
 
-
 function getUnsyncedToDos() {
 
   $.ajax( {
