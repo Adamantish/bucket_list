@@ -32,6 +32,25 @@ $left_nav_width: 31.5rem;
   }
 }
 
+.icon {
+
+  top: 0;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+
+  &__close-edit {
+    @extend .icon;
+    left: 22.8em;
+  }
+
+  &__trash {
+    @extend .icon;
+   
+  }
+
+}
+
 header.devise-header > p {
 
   margin: 0 0 0.1em 0;
@@ -175,8 +194,6 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
   text-decoration: none;
 }
 
-
-
 #add__to_do {
 
   position: relative;
@@ -254,20 +271,3 @@ fieldset > input , fieldset > select, #destination__search-opts, #select--sort-t
   width: 28.5rem;
 }
 
-.icon {
-  top: 0;
-  position: relative;
-  cursor: pointer;
-  display: inline-block;
-
-  &__close-edit {
-    @extend .icon;
-    left: 22.8em;
-  }
-
-  &__trash {
-    @extend .icon;
-   
-  }
-
-}

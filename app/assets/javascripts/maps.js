@@ -43,7 +43,7 @@ function initEventListeners() {
   });
 
   window.onfocus = function() { runSyncPolling( true ) };
-  window.onblur = function() { runSyncPolling(  false ) };
+  window.onblur = function() { runSyncPolling( false ) };
 
 };
 

@@ -7,34 +7,17 @@ body {
 }
 
 
-#map-container {
-  position: fixed;
-  min-width: 100%;
-  min-height: 100%;
-  height: 900px ;
-  z-index: -2;
-  top: 2.5em;
-}
-
-#map-canvas {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-
-}
-
 #modal {
   position: fixed;
   width: 20em;
   font-size: 0.5em;
   padding: 1em;
   box-shadow: 1em 1em 1em;
-
-background-color: white;
+  background-color: white;
 }
 
-/*#modal:before {
+/*
+#modal:before {
   content: "x";
   position: relative;
   left: 315px; 
@@ -57,4 +40,3 @@ background-color: white;
   position: fixed;
   background-color: rgba(0,0,0,0);
 }
-
