@@ -21,7 +21,7 @@ function addMarker(lat, lng, title, id) {
 
   markers.push(marker);
   window.map.latlngbounds.extend(myLatLng);
-  marker.addListener("click", function() { showModal(toDo)});
+  // marker.addListener("click", function() { showModal(toDo)});
   fitMapToMarkers();
 
 };

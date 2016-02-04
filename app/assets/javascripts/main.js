@@ -67,6 +67,13 @@ function initProcesses(){
 function hideGreetingAndUnblur(){
 
   $('#greetings').hide();
-  $('#blur-container').css("-webkit-filter","blur(0px) brightness(1)");
+  $blurContainer = $('#blur-container')
+  // Setting this listener here instead of the initialising function to avoid a second jquery selection.
+  $blurContainer.on('transitionend webkitTransitionEnd oTransitionEnd', function() {
+    $bucket = $('#bucket')
+    $bucket.css("top","2px").unwrap();
+  })
+  $blurContainer.css("-webkit-filter","blur(0px) brightness(1)");
+
 
 };
