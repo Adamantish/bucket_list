@@ -128,9 +128,6 @@ function getUnsyncedToDos() {
   $.ajax( {
     url: '/to_dos/unsynced_changes',
     data: window.toDoLatestTimestamps
-    // success: function(result) { 
-    //   // storeToDoLatestTimestamps( result ) 
-    // }
   });
 
 };
