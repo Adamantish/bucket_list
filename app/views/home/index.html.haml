@@ -15,11 +15,11 @@
       = select_tag "Find Destination" , options_from_collection_for_select(@destinations, "id", "name") , { id: "destination__search-opts", prompt: "Search destination"}
 
       = select_tag "Sort ToDos" , "<option value='data' >^A-Z</option><option value='data_id'>^1,2,3</option>", {id: "select--sort-to_dos", prompt: "Sort by"}
-      - if current_traveller
-        = link_to "Log Out", destroy_traveller_session_path, {method: "DELETE"}
-      - else
-        = link_to "Register", new_traveller_registration_path
-        = link_to "Log In", new_traveller_session_path
+      / - if current_traveller
+      /   = link_to "Log Out", destroy_traveller_session_path, {method: "DELETE"}
+      / - else
+      /   = link_to "Register", new_traveller_registration_path
+      /   = link_to "Log In", new_traveller_session_path
 
   #bucket
     
