@@ -1,9 +1,9 @@
-ruby '2.2.4'
+ruby '2.3.0'
 source 'https://rubygems.org'
 
 gem 'pg'
-gem 'rails_12factor'
-gem 'rails', '~>5.0.0.beta1'
+
+gem 'rails', github: "rails/rails"
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
@@ -37,5 +37,6 @@ group :test do
 end
 
 group :production do
+  gem 'rails_12factor'
   # gem 'rack-cache'
 end
