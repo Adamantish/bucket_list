@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # Serve websocket cable requests in-process
-  # mount ActionCable.server => '/cable'
+  # binding.pry
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -36,4 +37,7 @@ Rails.application.routes.draw do
       end
 
     end
+
+    # binding.pry
+    mount ActionCable.server , :at => '/cable'
 end
