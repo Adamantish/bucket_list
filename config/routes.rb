@@ -4,13 +4,15 @@ Rails.application.routes.draw do
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'
 
-  devise_for :travellers
-  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'home#index'
+
+  devise_for :travellers, controllers: {
+      sessions: 'traveller/sessions'
+    }
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
