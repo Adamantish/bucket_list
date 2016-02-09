@@ -10,6 +10,7 @@ class HomeController < ApplicationController
 
     traveller_id = current_traveller.id if current_traveller
     traveller_id ||= 0
+    
     @edit_or_new_to_do = ToDo.new()
     @destinations = Destination.all
     @destination_options = get_select_options(Destination.all)
